@@ -1,0 +1,17 @@
+.elewarning{
+	width:100%;
+	text-align: center;
+	height:auto;
+	margin:10px auto;
+}
+.elewarning .elewarningdiv{
+	width:100%;
+	text-align:center;
+}
+.elewarning .elewarningp{
+	width:100%;
+	text-align:center;
+	color:#6E717A;
+	font-size:1.4rem;
+	margin-top:10px;
+}

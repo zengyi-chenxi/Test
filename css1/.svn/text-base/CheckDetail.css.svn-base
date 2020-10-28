@@ -1,0 +1,133 @@
+/*单选框*/
+.checkradio{
+    display: flex;
+    margin: 1rem 0;
+}
+.checkradio p{
+	margin-right:10%;
+}
+.checkradio .radionoxuan {
+    background: url(../img1/yuannoxuan.png) no-repeat;
+    background-size: 100% 100%;
+}
+.checkradio .radioxuan {
+    background: url(../img1/yuanselect.png) no-repeat;
+    background-size: 100% 100%;
+}
+.checkradio .radionoxuan,.checkradio .radioxuan{
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    position: relative;
+    top:2px;
+    margin-right:5px;
+}
+/*复选框*/
+.checkchecked{
+    margin-top:0.5rem;
+    overflow:hidden;
+}
+.checkchecked p{
+	width:33%;
+	float:left;
+	margin-bottom:0.5rem;
+}
+.checkchecked .checkcheckednoxuan{
+    background: url(../img1/fangselectre.png) no-repeat;
+    background-size: 100% 100%;
+}
+.checkchecked .checkcheckedxuan{
+    background: url(../img1/check.png) no-repeat;
+    background-size: 100% 100%;
+}
+.checkchecked .checkcheckednoxuan,.checkchecked .checkcheckedxuan{
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    position: relative;
+    top:3px;
+    margin-right:5px;
+}
+/*表格样式*/
+.checkdetaillist{
+	width:100%;
+	height:auto;
+	/*margin-bottom:2rem;*/
+	overflow:hidden;
+}
+[class^='tableList'],.remarksDiv{
+	display: none;
+}
+.checkdetaillist p{
+	padding-top:0.5rem;
+}
+.checkdetaillist h4,.checkdetaillist h5{
+	width:96%;
+	margin:1rem auto;
+	font-size:1.4rem;
+}
+.checkdetaillist h6{
+	margin:0.5rem auto;
+	padding:0 0.5rem;
+}
+.checkdetaillist h5 span{
+	color:#da4a4a;
+	font-size:1.6rem;
+	margin:0 0.6rem;
+}
+.checkdetaillistdiv{
+	width:100%;
+	height: 30px;
+    line-height: 30px;
+	background:#FFFFFF;
+	border-bottom:1px solid #e7e8ea;
+	padding:0.5rem 0.5rem;
+	overflow:hidden;
+}
+.checkdetaillistdiv label{
+	display:inline-block;
+	width:40%;
+	float:left;
+}
+.checkdetaillistdiv div{
+	display:inline-block;
+	width:60%;
+	float:left;
+}
+.checkdetaillistxuan{
+	width:96%;
+	height:auto;
+	background:#FFFFFF;
+	margin-bottom:5px;
+	padding:0.5rem 2%;
+	overflow:hidden;
+	font-size: 1.5rem;
+	color: #353535;
+}
+.checkdetaillisttian{
+	display:inline-block;
+	border-bottom:1px solid #000000;
+	margin:0 1rem;
+}
+.checkdetaillistxuan .checkdetaillistdiv{
+	padding:0.5rem 0;
+}
+#SignPhotoPath{
+	width: 96%;
+    margin: 0 auto;
+    height: 19rem;
+    background: #999999;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+}
+#SignPhotoPath figure,.addSign figure{
+	width:100%!important;
+	height: 100%!important;
+}
+.addSign .my-gallery1{
+	height:100%;
+}
+.addSign figure a{
+	width:16rem!important;
+	height: 16rem!important;
+}

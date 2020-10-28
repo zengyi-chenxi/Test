@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>用户评价/投诉举报</title>
+		<link rel="stylesheet" type="text/css" href="font_356262_ek6dr89la73z0k9/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/scrollbar.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css1/pj.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/comment.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/sc.css"/>
+		<link href="PhotoSwipe-4.1.2/dist/photoswipe.css?v=4.1.1-1.0.4" rel="stylesheet" />
+		<link href="PhotoSwipe-4.1.2/dist/default-skin/default-skin.css?v=4.1.1-1.0.4" rel="stylesheet" />
+		<style type="text/css">
+			.clearfix:after{
+				content: '';
+				display: block;
+				visibility: hidden;
+				height: 0;
+				clear: both;
+			}
+			.clearfix{
+				zoom:1
+			}
+		</style>
+	</head> 
+	<body>
+		<div style='width:100%;background:#F5F5F5;'>
+			<div class="content">
+				<div class="mui-row pj-mid">
+					<div class="mui-col-xs-4 mui-col-sm-4 dz_sc_list" data-id="0">
+						<h3><i class="good-icon"></i>好评</h3>
+					</div>
+					<div class="mui-col-xs-4 mui-col-sm-4 dz_sc_list" data-id="1">
+						<h3><i class="middle-icon"></i>中评</h3>
+					</div>
+					<div class="mui-col-xs-4 mui-col-sm-4 dz_sc_list" data-id="2">
+						<h3><i class="poor-icon"></i>差评</h3>
+					</div>
+				</div>
+				<div class="mesKg">
+					<textarea name="" rows="" cols="" placeholder="请填写意见..." id='content'></textarea>
+				</div>				
+				<div class='sctp img-list'>
+					<a class='a-col-td' onclick='tcsc(this)' style="display:inline-block;float:left;margin-left:20px;margin-top:20px;">
+						<div class='add-img'></div>
+						<h3 class='h3-my-com'>上传图片</h3>
+					</a>
+					<div class='xs'></div>
+				</div>
+				<div class="anonymous" onclick="changeIcon()">
+					<p style="font-weight:bold;"><i id="pj_icon"></i>投诉举报</p>
+				</div>				
+			</div>			
+			<div class='text-pl'>
+				<!--<p class="pj-shop" id="sh-name"></p>-->
+				<div class="star-pj clearfix">
+					<div class="star-pj-left">
+						<p>综合评分</p>
+					</div>
+					<div class="star-pj-right" style="width: calc(100% - 130px);">
+						<div class="clearfix">
+							<p class="hao_ping_dd" style="margin-top: 1px;">菜品</p>
+							<div id="starttwo" class="block clearfix">
+								<div class="star_score"></div>
+								<div class="attitude" id='area'></div>
+								<div class='score' id='areascore'></div>
+							</div>
+						</div>
+						<div class="clearfix" style="margin-top: 13px;margin-bottom: 13px;">
+							<p class="hao_ping_dd" style="margin-top: 1px;">环境</p>
+							<div id="starttwo1" class="block clearfix">
+								<div class="star_score"></div>
+								<div class="attitude" id='area'></div>
+								<div class='score' id='foodscore'></div>
+							</div>
+						</div>
+						<div class="clearfix">
+							<p class="hao_ping_dd" style="margin-top: 1px;">服务</p>
+							<div id="starttwo2" class="block clearfix">
+								<div class="star_score"></div>
+								<div class="attitude" id='area'></div>
+								<div class='score' id='servicescore'></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="upBtn-kg">
+					<input type="button" value="提交" onclick="goUp(this)"/>
+				</div>
+			</div>			
+			<div class='td' onclick='dis_td()'>
+				<div class='bot-td'>
+					<!--<a class='a-col-td' onclick='getImage()'>
+						<p class='p-td'>拍摄</p>
+					</a>-->
+					<a class='a-col-td'>
+						<input type="file" id="file">
+						<p class='p-td' style="border-top: 1px solid #D3D3D3;">相册</p>
+					</a>
+					<a class='a-col-td' onclick='dis_td()' style="border-top: 8px solid rgba(0, 0, 0, 0.2);">
+						<p class='p-td'>取消</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--验证码弹框-->
+		<div class="Evalcodealert" id="Evalalert">
+			<div class="Evalcodealertclose"><img src="img1/cancel.png"/></div>
+			<div class="Evalcodealertul">
+				<div class="Evalcodealertli">
+				  <input type="text" class="Evalcodealertliphone" placeholder="请输入手机号" id="Phonenum"/>
+				  <div class="Evalcodealertlicode">
+				  	<input type="text" placeholder="请填写验证码" id="Phonecode"/>
+				  	<input id="Phonenumber" type="button" value="获取验证码" onclick="Getcode(this)"/>
+				  </div>
+				  <p class="Evalcodealertlip">说明：手机号监管单位可查看 。</p>
+				  <button class="Evalcodealertlibutton">确定</button>
+				</div>
+			</div>			
+		</div>
+		
+		<!--图片点击放大-->
+		<div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="pswp__bg"></div>
+			<div class="pswp__scroll-wrap">
+				<div class="pswp__container">
+					<div class="pswp__item"></div>
+					<div class="pswp__item"></div>
+					<div class="pswp__item"></div>
+				</div>
+				<div class="pswp__ui pswp__ui--hidden">
+					<div class="pswp__top-bar">
+						<div class="pswp__counter"></div>
+						<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+						<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+						<div class="pswp__preloader">
+							<div class="pswp__preloader__icn">
+								<div class="pswp__preloader__cut">
+									<div class="pswp__preloader__donut"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pswp__loading-indicator">
+						<div class="pswp__loading-indicator__line"></div>
+					</div>
+					<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+						<div class="pswp__share-tooltip">
+						</div>
+					</div>
+					<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+					<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+					<div class="pswp__caption">
+						<div class="pswp__caption__center">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js1/jquery-1.4.3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type='text/javascript' src="PhotoSwipe-4.1.2/dist/photoswipe.min.js?v=4.1.1-1.0.4"></script>
+	<script type='text/javascript' src="PhotoSwipe-4.1.2/dist/photoswipe-ui-default.min.js?v=4.1.1-1.0.4"></script>
+	<script src="js1/mui.min.js" type='text/javascript' charset="utf-8"></script>
+	<script src="js1/starScore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/phoneCapture.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/imgLarge.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/Evaluationfen.js" type="text/javascript" charset="utf-8"></script>
+</html>

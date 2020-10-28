@@ -1,0 +1,580 @@
+/*商家名称*/
+html,body{
+	height: 100%;
+	font-family: "Microsoft Yahei"!important;
+}
+input,button{
+	outline: none;
+	color: #353535;
+}
+.contentDiv{
+	width: calc(100%-20px);
+	padding: 10px 10px;
+	background: #fff;
+}
+p.bus_title{
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+/*商家属性*/
+.radioDiv .yuannoxuan{
+	background: url(../img1/yuannoxuan.png) no-repeat;
+	background-size: 100% 100%;
+}
+.Patrol_content .chooseSpan.hasChoose,[class^='forbid_content'] span.chooseSpan.hasChoose,.busClassify span.chooseSpan.hasChoose{
+	background: url(../img1/check.png) no-repeat;
+	background-size: 100% 100%;
+}
+.radioDiv .yuannoxuan.yuanxuan{
+	background: url(../img1/yuanselect.png) no-repeat;
+	background-size: 100% 100%;
+}
+.judgeResult{
+	color:rgba(212, 48, 48, 1);
+	margin-top: 3rem;
+}
+[type='radio']{
+	width:15px;
+	height: 15px;
+	margin-right: 0.8rem;
+    position: relative;
+    top: 2px;
+}
+.radioDiv{
+	margin-top: 1.5rem;
+	display: flex;
+}
+.contentMarginTop .tips{
+	display: none;
+}
+.radioDiv p:first-child{
+	margin-left:0.5rem;
+}
+.radioDiv p:last-child{
+	margin-left:2rem;
+}
+/*商户信息*/
+.busInfo ul li,.inspect_content4 li ul li{
+	height: 36px;
+    line-height: 36px;
+    border-bottom: 1px solid #ddd;
+    color: #353535;
+    padding: 5px 0;
+    font-size: 1.5rem;
+}
+.searchContent ul li,.searchContent ul p,.classifySelect ul li{
+	height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: #696969;
+    font-size: 1.4rem;
+}
+.busInfo ul li input,.inspect_content4 li ul li input{
+	border:none;
+	color: #353535;
+	width:63%;
+	background: none;
+	height: 36px;
+	font-size:1.5rem;
+}
+.inspect_content4 li ul.tips li input{
+	width:50%;
+}
+.busInfo ul li:last-child{
+	border-bottom:none!important;
+}
+.busInfo ul li span{
+	display: inline-block;
+	width: 35%;
+}
+.inspect_content4 li ul.tips li span{
+	display: inline-block;
+	width: 45%;
+}
+/*上传图片*/
+.loadPhone{
+	margin: 1.5rem 0 0;
+}
+.loadPhone ul>figure,.loadPhone p.createPhone{
+	border: 1px solid #ccc;
+    width: 30%;
+    height: 9rem;
+    text-align: center;
+    border-radius: 3px;
+    color: #a09e9e;
+    display: inline-block;
+    margin: 0 3% 1.5rem 0;
+    float: left;
+}
+.loadPhone ul>figure{
+	border:none;
+}
+.loadPhone ul>figure>div{
+	position:relative;
+}
+.loadPhone ul>figure>div,.loadPhone ul>figure img{
+	width:100%;
+	height: 100%;
+}
+.loadPhone ul>figure>div>span{
+    display: inline-block;
+    position: absolute;
+    z-index: 999;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    background: #d8d8d8;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 19px;
+}
+.loadPhone ul>figure a{
+	display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.photoScene .loadPhone .createPhone{
+	font-weight: bold;
+}
+.photoScene .loadPhone .createPhone span:first-child{
+	font-size: 4rem;
+}
+/*弹出层*/
+.td {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.2);
+    display: none;
+}
+.bot-td {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background: #fff;
+}
+.a-col-td {
+    display: block;
+    position: relative;
+    /* padding: 0 15px; */
+}
+#file ,#cameraInput{
+    width: 100%;
+    height: 54px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+}
+.p-td {
+    height: 54px;
+    text-align: center;
+    line-height: 54px;
+    color: #2B2B2B;
+    margin: 0 15px;
+    font-size: 1.7rem;
+}
+.a-col-td {
+    display: block;
+    position: relative;
+    /* padding: 0 15px; */
+}
+.photoScene .addr{
+	background: url(../img1/point.png) no-repeat;
+	background-size: 100% 100%;
+	color: #006699;
+	height: 1.9rem;
+	top:4px;
+}
+.addrP{
+	font-size:1.3rem;
+	color: #006699;
+}
+/*提交按钮*/
+.btn{
+	width: 94%;
+    height: 45px;
+    line-height: 45px;
+    background: #35d7ae;
+    border: none;
+    color: #fff;
+    margin: 0 auto;
+    margin: 5rem 3%;
+    border-radius: 18px;
+    font-size: 1.8rem;
+	letter-spacing: 1px;
+}
+/*附件弹框*/
+.proto ,.proto1,.signBox1,.signBox{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-x: hidden ;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 999;
+}
+.proto1{
+	height: 30%;
+	z-index: 9999;
+}
+.signBox1{
+	height: 15%;
+	z-index: 9999;
+	background: none;
+}
+.proto.hover,.proto1.hover,.signBox1.hover,.signBox.hover {
+    display: block;
+}
+.proto .protoCon,.signBox .signBoxCon{
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    height: 70%;
+    bottom: 0;
+    overflow-y: auto;
+}
+.signBox .signBoxCon{
+	height: 65%;
+    bottom: 20%;
+}
+.proto .protoCon .return {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    width: 25px;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #A9A9A9;
+    color: #fff;
+    cursor: pointer;
+    font-size:2.5rem;
+}
+.forbidList{
+	margin: 1.5rem auto;
+}
+.forbid_content1{
+	width: 90%;
+	margin: 0 auto;
+	display: none;
+}
+.forbid_content2,.forbid_content7{
+	width: 98%;
+	margin: 0 auto;
+	display: none;
+}
+.forbid_content1.hover,.forbid_content2.hover,.forbid_content7.hover{
+	display: block;
+}
+table{
+	text-align: center;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	border-collapse:collapse;
+} 
+table td{
+	border-left:1px solid #ccc;
+	border-top:1px solid #ccc;
+	height:30px;
+} 
+.bold{
+	color: #000;
+	font-size: 1.5rem;
+}
+.boldTitle{
+	text-align: center;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	color: #000;
+	font-weight: bold;
+}
+.light{
+	color: #353535;
+	font-size: 1.5rem;
+}
+table.light{
+	width:100%;
+	font-size:1.5rem;
+	margin-bottom: 5rem;
+}
+.forbid_content1 ul li{
+	margin-top: 1rem;	
+}
+.searchTop{
+	padding-top:10px;
+}
+.searchTop.whenSearch{
+	position: fixed;
+	width:94%;
+	height: 6.5rem;
+	background: #fff;
+	padding-top: 10px;
+	/*padding: 20px 5px 10px;*/
+}
+.hgt{
+	height: 7.5rem;
+	display: none;
+}
+/*/////新加的////*/
+textarea{
+	width:99%;
+	resize: none;
+	padding-top: 10px;
+	padding-left: 5px;
+	outline: none;
+	border:1px solid #ccc;
+}
+.busPatrolSearth textarea{
+	border: none;
+}
+.red{
+	color: rgba(212, 48, 48, 1)!important;
+}
+.busClassify .top_content{
+	/*display: flex;
+	height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #35d7ae;
+    margin-bottom: 1rem;*/
+    display: flex;
+    width: 93%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 1em 0;
+    padding: 0 1em;
+    box-shadow: 0px 1px 10px 1px rgb(218,243,235);
+}
+.busClassify .top_content .bus_title{
+	width:35%;
+}
+.busClassify .top_content .arrow{
+	color: #353535;
+	width: 65%;
+	font-size: 1.5rem;
+	text-align: right;
+}
+.classifySelect{
+	display: none;
+}
+.busClassify textarea{
+	margin-top:1rem;
+}
+/*[class^='inspect_content']{
+	display: none;
+}*/
+.inspect_content3 ul.tips{
+	margin-top: 8px;
+}
+.inspect_content3 ul.tips li{
+	display: inline-block;
+}
+/***************************/
+.busClassify>.bus_title{
+	height: 30px;
+    border-bottom: 1px solid #ddd;
+}
+.fsm_div {
+    width: 93%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 1em 0;
+    padding: 0 1em;
+    box-shadow: 0px 1px 10px 1px rgb(218,243,235);
+}
+.fsm_div span{
+	font-size: 1.5rem;
+}
+.arrow i {
+    font-size: 1.2em;
+    color: #00ca82;
+    float: right;
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-xiajiantou:before { content: "\e682"; }
+.icon-shangjiantou:before { content: "\e681"; }
+[class^='inspect_content'].hover ul{
+	display: block;
+}
+/*头部*/
+.top_wrapper{
+	height: 120px;
+    background-image: linear-gradient(to right, #24DEA1 , #1FD3B3);
+    padding-top: 26px;
+}
+.elecBg_title{
+	width: 86%;
+    margin: 0 auto;
+    height: 100px;
+    background: url(../img1/elecNum_bg.png) no-repeat;
+    background-size: contain;
+    color: #107A56;
+    font-size: 1.7rem;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+}
+.elecBg_title p{
+	position:relative;
+	top:-6px;
+}
+/*签到*/
+.addr_title {
+	width: 17%;
+	font-weight: bold;
+	font-size: 1.3rem;
+}
+.SignMaintence ul{
+	margin-top: 15px;
+}
+.SignMaintence ul li{
+	font-size: 1.3rem;
+}
+.weibaoSpan{
+	width: 35px;
+    height: 35px;
+    display: inline-block;
+    background: #43cf7c;
+    color: #fff;
+    border-radius: 50%;
+    line-height: 35px;
+    text-align: center;
+    position: relative;
+}
+.timeRecord{
+	margin: 0 8px;
+}
+.weibaoSpan i{
+	position: absolute;
+    width: 1px;
+    height: 35px;
+    background: #43cf7c;
+    top: 100%;
+    right: 50%;
+}
+.SignMaintence ul li:last-child .weibaoSpan i{
+	display: none;
+}
+.addrSpan{
+	width:48%;
+	float:right
+}
+/*******************/
+.nearsite-message{
+	width: 100%;
+	box-sizing: border-box;
+    display: inline-block;
+    clear:both;
+    padding:2% 1%;
+}
+.nearsite-message .avatar{
+	width: 10%;
+    float:left;
+}
+.nearsite-message .avatar img{
+    width:25px;
+    height:25px;
+    overflow: hidden;
+    /*border-radius:50%;*/
+}
+.nearsite-message .contents{
+	width: 90%;
+	height:35px;
+    float: left; 
+    background: #fff;
+    box-sizing: border-box;
+    padding:0;
+    border-radius:7px;
+    max-width: 90%;
+    position: relative;
+    overflow: hidden;
+}
+.cont_n{
+	font-size: 1.1em;
+	color: #000000;
+	font-weight: bold;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width:700px;
+}
+.cont_t,.cont_a{
+	color: #838383;
+	font-size:1.1em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width:700px;
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.vertbar{
+    width: 1px;
+    height: 80px;
+    background-color: #dbdbdb;
+    margin: -36px 1.2em -28px;
+}
+.SignMaintence ul li:last-child .vertbar{
+	display: none;
+}
+.radioDiv .yuannoxuan{
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}
+.nextMaintenceTime{
+	background: #fff;
+}
+.nextMaintenceTime p{
+	height: 36px;
+    line-height: 36px;
+    color: #353535;
+    padding: 5px 0;
+    font-size: 1.5rem;
+}
+.nextMaintenceTime p span {
+    display: inline-block;
+    width: 35%;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.nextMaintenceTime p input {
+    border: none;
+    color: #353535;
+    width: 63%;
+    background: none;
+    height: 36px;
+    font-size: 1.5rem;
+}
+.contentMarginTop {
+    margin-top: 1rem;
+}

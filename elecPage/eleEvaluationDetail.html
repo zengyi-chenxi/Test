@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
+		<title>回复评价</title>
+		<link rel="stylesheet" type="text/css" href="../font_356262_ek6dr89la73z0k9/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../css1/scrollbar.css"/>
+		<link rel="stylesheet" type="text/css" href="../css1/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css1/pj.css"/>
+		<link rel="stylesheet" type="text/css" href="../css1/comment.css"/>
+		<link rel="stylesheet" type="text/css" href="../css1/sc.css"/>
+		<link href="../PhotoSwipe-4.1.2/dist/photoswipe.css?v=4.1.1-1.0.4" rel="stylesheet" />
+		<link href="../PhotoSwipe-4.1.2/dist/default-skin/default-skin.css?v=4.1.1-1.0.4" rel="stylesheet" />
+	</head>
+	<body class="evaluediv">
+		<div style="overflow:hidden;height:auto;margin-bottom:60px;margin-top:10px;">
+		    <div>
+				<div class="d-pj-top clearfix" style="padding-top:5px;margin-top:10px;">
+					<div class="pj_toux pull-left" id="dPj-tx">
+					</div>
+					<div class="pj-name pull-left">
+						<p class="yh-nickname" id="d-nickname"></p>
+						<p class="pj-time" id="d-time"></p>
+					</div>
+				</div>
+				<div class="d-pj-content">
+					<div id="d-pj-ctext"></div>
+				</div>
+				<div style="overflow:hidden;">
+					<ul id="d-img" class="d-imgKg img-list" data-pswp-uid="1" style="overflow:hidden;padding:0;"></ul>	
+				</div>				
+		    </div>
+			<div class="clearfix d-kg" id="dzKgId">
+				<div class='pj-content-bottom-btm pull-right' id="pl-btn" style="margin-right: 10px;"><i class='pl-icon'></i><span id="pl-num">评论</span></div><!--onclick="ReplyList()"-->
+				<div class='pj-content-bottom-btm pull-right' style='margin-right: 6px;'><i class='dz-icon'></i><span id="dz-num"></span></div><!--onclick="Laud()"-->
+			</div>
+			<div class="other-reply-kg" style="display:block;border-top:1px solid #D3D3D3;margin-top:10px;">
+				<p style="font-size: 1.5rem;color: #2B2B2B;margin-top: 5px;margin-bottom: 10px;">全部评论</p>
+				<ul style="margin-top: 5px;" id="other-reply-list">
+				</ul>
+			</div>
+		</div>	
+		<!--图片点击放大-->
+		<div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="pswp__bg"></div>
+			<div class="pswp__scroll-wrap">
+				<div class="pswp__container">
+					<div class="pswp__item"></div>
+					<div class="pswp__item"></div>
+					<div class="pswp__item"></div>
+				</div>
+				<div class="pswp__ui pswp__ui--hidden">
+					<div class="pswp__top-bar">
+						<div class="pswp__counter"></div>
+						<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+						<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+						<div class="pswp__preloader">
+							<div class="pswp__preloader__icn">
+								<div class="pswp__preloader__cut">
+									<div class="pswp__preloader__donut"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pswp__loading-indicator">
+						<div class="pswp__loading-indicator__line"></div>
+					</div>
+					<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+						<div class="pswp__share-tooltip">
+						</div>
+					</div>
+					<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+					<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+					<div class="pswp__caption">
+						<div class="pswp__caption__center">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script type="text/javascript" src="../js1/jquery-1.4.3.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../js1/mui.min.js" charset="utf-8"></script>
+	<script type='text/javascript' src="../PhotoSwipe-4.1.2/dist/photoswipe.min.js?v=4.1.1-1.0.4"></script>
+	<script type='text/javascript' src="../PhotoSwipe-4.1.2/dist/photoswipe-ui-default.min.js?v=4.1.1-1.0.4"></script>
+	<script type="text/javascript" src="../js1/imgLarge.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../elecJs/common.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../elecJs/EvaluationDetail.js" charset="utf-8"></script>
+	</body>	
+</html>

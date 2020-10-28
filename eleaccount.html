@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>登录</title>	
+		<link rel="stylesheet" type="text/css" href="css1/comment.css"/>
+		<link rel="stylesheet" type="text/css" href="font_356262_ek6dr89la73z0k9/iconfont.css"/>
+		<link type='text/css' rel='stylesheet' href="css1/dl.css" />
+	</head>
+	<body>
+		<div class="appIconkg">
+			<div class="logo_kg"><img src="img1/new-logo.png"/></div>
+		</div>
+		<div class='account'>
+			<div class="account_tab">
+				<div class="account_tabone account_tabzhong" style="margin-right:10%;">账户密码登录</div>
+				<div class="account_tabone">手机号登录</div>
+			</div>
+			<div class="account_tablist" style="overflow:hidden;">
+				<div class='d-artile account_tablistcon'>
+					<div class='d-username' style="position:relative;">
+						<i class="d-username-kg pull-left" ></i>
+						<input type='text' class='ipu-new' id='loginname' placeholder="请输入账户" onfocus="CheckUserName()"/>
+						<i class="del_icon pull-right"></i>
+					</div>				
+					<div class='d-password'>
+						<i class="d-password-kg pull-left" ></i>
+						<input type='password' class='ipu-old' id='password' placeholder="请输入密码" onfocus="CheckPwd()"/>
+						<img class="paw_icon pull-right" id="showhiden" src="img1/hidden.png" onclick="CanLook()"></img>
+					</div>					
+				</div>
+				<div class='d-artile account_tablistcon' style="display:none;">
+					<div class='d-username' style="position:relative;">
+						<i class="d-username-kg pull-left" ></i>
+						<input type='text' class='ipu-new' id='loginphone' placeholder="请输入手机号" onfocus="CheckUserName()"/>
+						<i class="del_icon pull-right"></i>
+					</div>
+					<div class="d-code">
+						<i class="d-code-kg pull-left" ></i>
+					  	<input type="text" placeholder="请填写验证码" id="Phonecode" onfocus="CheckPwd()"/>
+					  	<input type="button" value="获取验证码" id="Phonenumber" onclick="Getcode(this)"/>
+					</div>
+					
+				</div>
+				<p class='tip1' id='passwordmes'></p>
+			</div>			
+			<a href="#" onclick="Login()" class='a-col-btn'>
+				<p class='log_in'>登录</p>
+		   </a>			
+		</div>
+		<div id="loading"><img src='img1/loading.gif'/></div>
+	</body>
+</html>
+<script src="js1/jquery-1.4.3.js" type="text/javascript" charset="utf-8"></script>
+<script src="elecJs/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="elecJs/account.js" type="text/javascript" charset="utf-8"></script>
+

@@ -1,0 +1,468 @@
+
+
+/*logo图标*/
+.appIconkg{
+	margin-top:50px;
+	width: 100%;
+	background: #fff;
+	margin-bottom:85px;
+}
+.logo_kg{
+	width: 71px;height: 71px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.logo_kg img{
+	width: 100%;
+}
+/*tab切换*/
+.account_tab{
+	width:70%;
+	margin:0 auto;
+	overflow:hidden;
+	margin-bottom:20px;
+}
+.account_tabone{
+	width:45%;
+	float:left;
+	text-align:center;
+	padding-bottom:3px;
+}
+.account_tabzhong{
+	color:#26a4f6 !important;
+	border-bottom:2px solid #26a4f6;
+}
+
+
+/*填写账号密码等*/
+.account{
+	width:100%;
+	background:#fff;
+}
+.d-artile{
+	width:83%;
+	margin: 0 auto;
+}
+.d-username,.d-password{
+	height:45px;
+	line-height:45px;
+	border:1px solid #e5e5e5;
+	margin-bottom:20px;
+	border-radius:5px;
+}
+.d-username-kg{
+	display: block;
+	width: 1.2rem;height: 1.5rem;
+	overflow: hidden;
+	background: url(../img1/username_icon.png) no-repeat center center;
+	background-size: 100%;
+	margin-top:10px;
+	margin-right: 21px;
+	margin-left: 6px;
+}
+.d-password-kg{
+	width: 1.2rem;height: 1.5rem;
+	display: block;
+	background: url(../img1/password_icon.png) no-repeat center center;
+	background-size: 100%;
+	margin-top: 10px;
+	margin-right: 21px;
+	margin-left: 8px;
+}
+.ipu-new,.ipu-old{
+	width: calc(100% - 85px);
+	line-height:43px;
+	border: none;
+    outline: none;
+    font-size:1rem;
+    padding: 0 !important;    
+}
+.ipu-del{
+	width: calc(100% - 70px);
+	line-height:49px;
+	border: none;
+    outline: none;
+    font-size:1.5rem;
+    padding: 0 !important;
+}
+.ipu-new:focus,.ipu-yz:focus,.ipu-old:focus,.ipu-del:focus{
+	outline:none;
+}
+.d-artile input::-moz-placeholder{
+	color: #999;
+}
+.d-artile input::-ms-input-placeholder{
+	color: #999;
+}
+.d-artile input::-webkit-input-placeholder{
+	color: #999;
+}
+.del_icon{
+	width: 20px;height: 20px;
+	display: none;
+	background: url(../img1/cancel.png) no-repeat center center;
+	background-size: 100%;
+	position: absolute;
+	right: 10px;top:11px;
+}
+.paw_icon{
+	width: 1.5rem;
+	display: block;
+	overflow: hidden;
+	margin-top: 20px;
+	margin-right: 5px;
+}
+.paw_icon_hidden{
+	background: url(../img1/hidden.png) no-repeat center center;
+	background-size: 100%;
+}
+.paw_icon_show{
+	background: url(../img1/show.png) no-repeat center center;
+	background-size: 100%;
+}
+.tip1{
+	width:80%;height:20px;
+	margin-left:30px;
+	margin-top: 5px;
+	color:#979797;
+	margin-bottom: 3px;
+	display: none;
+	color: #f00;
+}
+.d-code{
+	width: 100%;
+    overflow: hidden;
+    position:relative;
+    margin-bottom:20px;
+}
+.d-code-kg{
+	position:absolute;
+	left:0;
+    width: 1.5rem;
+    height: 1.7rem;
+    display: block;
+    background: url(../img1/yanzhengma.png) no-repeat center center;
+    background-size: 100%;
+    margin-top: 10px;
+    margin-left: 8px;
+}
+#Phonecode {
+    width:45%;
+    height:41px;
+    float: left;
+    border:1px solid #e5e5e5;
+    border-radius:5px;
+    padding-left:3rem;
+    font-size:1rem;
+}
+#Phonenumber {
+	width:35%;
+    height: 45px;
+    float: right;
+    text-align: center;
+    background:#FFFFFF;
+    color:#444444;
+    font-size: 1rem;
+    border:1px solid #e5e5e5;
+    border-radius:5px;
+}
+
+/*登录*/
+.a-col-btn{
+	text-decoration: none;
+}
+.a-col-btn:hover{
+	text-decoration: none;
+}
+.log_in{
+	width:83%;height:44px;
+	font-size:1.2rem;
+	line-height:44px;
+	text-align: center;
+	margin: 30px auto;
+	border-radius:5px;
+	background: linear-gradient(to right, #24dea1, #1fd3b3 40%);
+	color:#fff;
+}
+/*立即注册、忘记密码*/
+.d2-ratile{
+	width: 83%;height:30px;
+	margin: 0 auto;	
+}
+.left-d2,.right-d2{
+	width:50%;height:100%;
+	float:left;
+	line-height: 30px;
+}
+.rem-psd{
+	text-align: right;
+	color:#999;
+	font-size: 1.4rem;
+	margin-right: 25px;
+}
+.rem-psd i,.fog-psd i{
+	font-size: 1.2rem;
+	margin-left: 10px;
+}
+.fog-psd{
+	color:#999;
+	font-size: 1.4rem;
+	padding-left: 25px;
+}
+
+/*绑定手机号界面*/
+.article_dl{
+	width:100%;
+	background:#fff;
+}
+.article_dlp{
+	width:83%;
+	margin:3rem auto;
+	margin-bottom:4rem;
+}
+.d-userId-kg{
+	display: block;
+	width:1.5rem;height:1.5rem;
+	overflow: hidden;
+	background: url(../img1/IdCard.png) no-repeat center center;
+	background-size: 100%;
+	margin-top:10px;
+	margin-right: 21px;
+	margin-left: 6px;
+}
+.d-phone-kg{
+	display: block;
+	width:1.6rem;height:1.5rem;
+	overflow: hidden;
+	background: url(../img1/dianhua.png) no-repeat center center;
+	background-size: 100%;
+	margin-top:10px;
+	margin-right: 21px;
+	margin-left: 6px;
+}
+#Phonenumbertwo{
+    width: 35%;
+    height: 30px;
+    float: right;
+    text-align: center;
+    background: #FFFFFF;
+    color: #444444;
+    font-size: 1rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    margin-top:8px;
+    color:#1fd3b3;
+}
+#Phonecodetwo{
+    width: 45%;
+    height: 45px;
+    float:left;
+    border:none;
+    border-radius: 5px;
+    padding-left: 3rem;
+    font-size: 1rem;
+}
+
+
+
+/*巡查列表*/
+#Checklist{
+	width:100%;
+	height:auto;
+}
+#Checklist li{
+	width:100%;
+	height:auto;
+	border-bottom:1px solid #ccc;
+	padding:0.5rem 0;
+}
+.Checklistli_top{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+}
+.Checklistli_top div{
+	display:inline-block;
+	float:left;
+	/*height:2.5rem;*/
+	text-align:center;
+}
+.Checklistli_top div img{
+	width:2.5rem;
+	height:2.5rem;
+	border-radius: 50%;
+}
+.Checklistli_topp,.Checklistli_addr,.Checklistli_bottm{
+	width:90%;
+	margin:1rem auto;
+	overflow:hidden;
+	min-height:2rem;
+}
+.Checklistli_topp img{
+	width:1rem;
+	height:1rem;
+	margin-right:0.5rem;
+	position: relative;
+    top: 2px;
+}
+.Checklistli_middle{
+	width:90%;
+	height:auto;
+	overflow:hidden;
+	margin:0 auto;
+}
+.Checklistli_middle img{
+	width:6rem;
+	height:6rem;
+	float:left;
+	margin-right:0.3rem;
+	margin-bottom:0.3rem;
+}
+.my-gallery figure{
+	margin:0 !important;
+	float:left;
+}
+.my-gallery figure div{
+	height: auto;
+}
+.Checklistli_addrimg{
+	width:1rem;
+	height:1.3rem;
+	float:left;
+	position: relative;
+	top:3px;
+}
+.Checklistli_addrdiv{
+	width:80%;
+	float:left;
+	color:#999999;
+	margin-left:1%;
+}
+.Checklistli_addrspan{
+	display:inline-block;
+	float:right;
+	width:2rem;
+	height:1rem;
+	line-height:0.4rem;
+	text-align: center;
+	background:#f0f0f0;
+	color:#1ce19a;
+	border-radius:3px;
+}
+.Checklistli_bottmzan{
+	width:100%;
+	height:auto;
+	margin:0.5rem 0.2rem;
+}
+.Checklistli_bottmzan img{
+	width:1rem;
+	height:1rem;
+	margin:0 0.2rem;
+	position:relative;
+	top:2px;
+}
+.Checklistli_bottmzan span{
+	color:#224a64;
+}
+.Checklistli_bottmlun{
+	width:98%;
+	margin:0 auto;
+}
+.Checklistli_bottmlun p{
+	margin-bottom:0.5rem;
+}
+.Checklistli_bottmlun p span{
+	color:#224a64;
+}
+.Checklistli_list{
+	width:50% !important;
+	position:absolute;
+	top:0;
+	right:15%;
+	background:#000000;
+	color:#ffffff;
+	overflow:hidden;
+	padding:0.3rem 0.5rem;
+	border-radius:2px;
+	display:none;
+}
+.Checklistli_list div{
+	width:50%;
+	float:left;
+}
+.Checklistli_list div img{
+	width:1.2rem;
+	height:1.2rem;
+	margin-right:0.4rem;
+	float:left;
+}
+
+#listinput{
+	position:fixed;
+	bottom:0;
+	width:100%;
+	z-index:999;
+	height:2.5rem;
+	background:red;
+	display:none;
+	overflow:hidden;
+	background:#f1f1f1;
+}
+#listinput input{
+	width:78%;
+    height:2.3rem;
+    border:none;
+    padding-left:5%;
+    float:left;
+    background:#f1f1f1;
+}
+#listinput div{
+	width:15%;
+	height:2.5rem;
+	line-height:2.5rem;
+	float:left;
+	font-size:0.9rem;
+	text-align:center;
+	color:#999999;
+}
+*:focus { 
+	outline: none;
+    background-color: transparent;
+}
+::selection{background:transparent; }
+::-moz-selection{background:transparent; }
+
+#xunchabtn{
+	position:fixed;
+	right:1rem;
+	bottom:6rem;
+	width:5rem;
+	height:5rem;
+	z-index:10;
+	background:url(../img1/xuncha.png) no-repeat center center;
+	background-size: 100%;
+	overflow:hidden;
+}
+#xunchabtn div{
+	float:left;
+	color:#FFFFFF;	
+}
+.xunchabtnone{
+   width:65%;
+   height:80%;
+   text-align:right;
+   padding-top:16%;
+}
+.xunchabtntwo{
+   margin-left:3%;
+   width:32%;
+   height:65%;
+   padding-top:35%;
+}
+.xunchabtntwo img{
+	width:50%;
+}
+[id^='zanlist'] img{
+	position:relative;
+	top:1px;
+}

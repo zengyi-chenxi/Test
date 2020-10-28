@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>维保完成</title>
+		<link rel="stylesheet" type="text/css" href="../font_356262_ek6dr89la73z0k9/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../css1/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css1/comment.css"/>
+		<style type="text/css">
+			.content_wrapper{
+				margin: 30% auto;
+				text-align: center;
+				background: #fff;
+			}
+			.btn {
+			    width: 70%;
+			    height: 45px;
+			    background: #35d7ae;
+			    border: none;
+			    color: #fff;
+			    margin: 0 auto;
+			    margin: 5rem 3%;
+			    border-radius: 6px;
+			    font-size: 18px;
+			    letter-spacing: 1px;
+			}
+			.tilte{
+				font-size: 1.5rem;
+				font-weight: bold;
+				color: #505050;
+				margin-bottom: 30px;
+			}
+		</style>
+	</head> 
+	<body>
+		<div style='width:100%;background:#F5F5F5;'>
+			<div class="content_wrapper">
+				<p><img src="../img1/hasComplete.png" alt="" width="18%"/></p>
+				<p class="tilte">完成</p>
+				<p>此部电梯维保工作已完成！</p>
+				<button class="btn">知道了</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js1/jquery-1.4.3.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../elecJs/common.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		var locationUrl = localStorage.getItem("locationUrl");
+		$(".btn").click(function(){
+			window.location.href = locationUrl;
+		})
+	</script>
+</html>

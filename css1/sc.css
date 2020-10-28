@@ -1,0 +1,363 @@
+/*.td {
+	width: 100%;height: 100%;
+	position: fixed;
+	left: 0px;bottom: 0px;
+	z-index:999;
+	background: rgba(0, 0, 0, 0.2);
+	display: none;
+}
+.bot-td{
+	width:100%;height:auto;
+	position: absolute;
+	left:0px;bottom:0px;
+	background: #fff;
+}
+.a-col-td{
+	display: block;
+	position: relative;
+}
+.p-td{
+	height: 54px;
+	text-align: center;
+	line-height: 54px;
+	color:#2B2B2B;
+	margin: 0 15px;
+	font-size: 1.7rem;
+}
+.p-td-xian{
+	border-top: 1px solid #D3D3D3;
+}
+.p-qx{
+	border-top: 8px solid rgba(0, 0, 0, 0.2);
+	height: 64px;
+	line-height: 64px;
+	text-align: center;
+	font-size: 1.7rem;
+	color:#2B2B2B;
+}
+#file{
+	width:100%;
+	height:54px;
+	position:absolute;
+	left:0px;top:0px;
+	opacity: 0;
+}
+.a-menu-tc:hover .menu-tc{
+	display:block;
+	z-index:999;
+}
+.self-informal {
+	width: 100%;
+	height: 60px;
+	background: #fff;
+	float: left;
+	line-height: 60px;
+	margin-bottom:10px;
+}
+.d-img-tx{
+	width:64px;height:64px;
+	background: rgba(255,255,255,0.35);
+	border-radius: 50%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.img_tx{
+	width:100%;height:100%;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.p-nc{
+	float:right;
+	margin-right:20px;
+	color:#999;
+	font-size: 1.6rem;
+}
+figure div{
+	width: 100%;height: 100%;
+}
+.delectIcon{
+	position: absolute;
+	top: 0;right: 0;
+	width: 22px;height: 22px;
+    border-radius: 50%;
+    background: rgba(102,102,102,.8);
+    text-align: center;
+    color: #fff;
+}*/
+.td {
+	width: 100%;height: 100%;
+	position: fixed;
+	left: 0px;bottom: 0px;
+	z-index:999;
+	background: rgba(0, 0, 0, 0.2);
+	display: none;
+}
+.bot-td{
+	width:100%;height:auto;
+	position: absolute;
+	left:0px;bottom:0px;
+	background: #fff;
+}
+.a-col-td{
+	display: block;
+	position: relative;
+	/*padding: 0 15px;*/
+}
+.p-td{
+	height: 54px;
+	text-align: center;
+	line-height: 54px;
+	color:#2B2B2B;
+	margin: 0 15px;
+	font-size: 1.7rem;
+}
+.p-td-xian{
+	border-top: 1px solid #D3D3D3;
+}
+.p-qx{
+	border-top: 8px solid rgba(0, 0, 0, 0.2);
+	height: 64px;
+	line-height: 64px;
+	text-align: center;
+	font-size: 1.7rem;
+	color:#2B2B2B;
+}
+#file{
+	width:100%;
+	height:54px;
+	position:absolute;
+	left:0px;top:0px;
+	opacity: 0;
+}
+.a-menu-tc:hover .menu-tc{
+	display:block;
+	z-index:999;
+}
+.self-informal {
+	width: 100%;
+	height: 60px;
+	background: #fff;
+	float: left;
+	line-height: 60px;
+	margin-bottom:10px;
+}
+.d-img-tx{
+	width:64px;height:64px;
+	background: rgba(255,255,255,0.35);
+	border-radius: 50%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.img_tx{
+	width:100%;height:100%;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.p-nc{
+	float:right;
+	margin-right:20px;
+	color:#999;
+	font-size: 1.6rem;
+}
+figure div{
+	width: 100%;height: 100%;
+}
+.delectIcon{
+	position: absolute;
+	top: 0;right: 0;
+	width: 22px;height: 22px;
+    border-radius: 50%;
+    background: rgba(102,102,102,.8);
+    text-align: center;
+    color: #fff;
+}
+/*健康码扫描结果*/
+.safaCode_infor{
+	width:85%;
+    margin:0 auto;
+    padding:10px 5px;
+    border-radius:5px;
+    background:#fff;
+}
+
+.safaCode_infor h2{
+	font-size: 2.0rem;
+	color: #333;
+}
+.safaCode_infor h2 span{
+	margin-left: 20px;
+}
+.safaCode_infor h2 i{
+	font-style: normal;
+	/*display: block;
+	max-width: calc(100% - 130px);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;*/
+}
+.safaCode_Contact p,.safaCode_status p{
+	font-size:1.4rem;
+	color: #B4B4B5;
+	margin-top: 10px;
+}
+.safaCode_Contact p:last-child{
+	/*margin-left: 30px;*/
+}
+.safaCode_status{
+	text-align: center;
+}
+.safaCode_status p:first-child{
+	font-size: 2.0rem;
+	/*color: #FA0909;*/
+	margin-top: 30px;
+	font-weight: bold;
+}
+/*.safaCode_DescInfor{
+	padding: 0 22px;
+}*/
+/*.safaCode_DescInfor h3{
+	font-weight: normal;
+	font-size: 1.5rem;
+	text-align: center;
+	margin-top: 20px;
+	color: #FA0909;
+}*/
+.safaCode_DescInfor{
+	padding:5px 10px;
+	width:87%;
+    margin:10px auto;
+    /*border: 1px solid #000;*/
+    border-radius:5px;
+    background:#fff;
+}
+.safaCode_status h3{
+	font-weight: normal;
+	font-size: 1.5rem;
+	text-align: center;
+	margin-top: 10px;
+	color: #FA0909;
+}
+/*.safaCode_DescInfor div{
+	color: #6E717A;
+	font-size: 1.5rem;
+	overflow:hidden;
+}*/
+.safaCode_Desc{
+	margin-top:20px;
+	/*margin:20px 0;*/
+}
+.safaCode_Desc ul{
+	margin-top: 5px;
+	font-size: 1.2rem;
+	display: flex;
+	justify-content:space-between;
+}
+.safaCode_Desc ul li{
+	width:25%;
+	float:left;
+	text-align:center;
+	color:#999999;
+	font-size:1.2rem;
+}
+.safaCode_Desc ul li img{
+	width:2.2rem;
+}
+
+.safaCode_Detail{
+	margin-top:10px;
+}
+.safaCode_Detail ul{
+	/*margin-top: 5px;*/
+	/*padding-left: 5px;*/
+	margin:10px 0;
+	overflow: hidden;
+	/*display:flex;*/
+    justify-content:space-between;
+}
+.safaCode_Detail ul li{
+	width:39%;
+	float:left;
+	height:30px;
+	line-height:30px;
+	padding-left:10%;	
+	margin:6px 0;	
+	text-align: center;
+    font-size:1.3rem;
+}
+.safaCode_Detail ul li p{
+	width: calc(100% - 110px);
+}
+.safaCode_Detail ul li p img{
+	width:16px;height:16px;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 10px;
+	margin-right: 5px;
+}
+.ContactPeople{
+	max-width: calc(100% - 170px);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+#lr_number{
+	margin: 0 5px;
+	color: #35c5c5;
+	font-size: 1.5rem;
+}
+
+
+.safaCode_DescInfor1{
+	/*width:95%;*/
+	/*padding:5px 22px;*/
+	width:80%;
+    margin:10px auto;
+    /*border: 1px solid #000;*/
+    border-radius:5px;
+    background:#fff;
+}
+
+
+
+.healthvideo{
+	width:100%;
+	height:auto;
+	color:#333333;
+	margin:10px 0 20px 0;
+	white-space:nowrap;
+    overflow-x:auto;   
+	justify-content:space-between;
+}
+.healthvideo li{
+	width:40%;
+	height:auto;
+	text-align:center;
+	display:inline-block;
+	margin-right:2%;
+}
+.healthvideoimg{
+	width:100%;
+	max-width:238px;
+}
+.healthvideoimg1{
+	width:100%;
+	max-width:74px;
+}
+.healthbottom{
+	position:fixed;
+	width:100%;
+	height:auto;
+	bottom:0px;
+	z-index:99;
+}
+.healthbottomdivone{
+  float:left;text-align:right;
+  padding-top: 1rem;
+  color:#fff;
+}
+
+.addtou{
+	float:right;
+	color:#00baad;
+	font-size:1.65rem;
+}

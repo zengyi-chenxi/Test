@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>用户评价/投诉举报</title>				
+		<link rel="stylesheet" type="text/css" href="font_356262_ek6dr89la73z0k9/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css1/pj.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/comment.css"/>				
+		<style type="text/css">
+			*{touch-action: none;}
+			.mui-pull-caption-nomore{
+				visibility:visible !important;
+			}
+			.mui-content{background-color:#FFFFFF;}
+		</style>
+	</head>
+	<body>
+		<div style="padding:0 12px;background:#fff;" id="st-kg">
+			    <div style="text-align:right;font-size:1.7rem;color:#00baad;margin-top:1rem;" onclick="commentList()">去评价</div>
+				<div class="xj_kg" style="height: 100px;">
+					<div class="hao_ping pull-left" style="margin-top: 10px;">
+						<p class="hao_ping_d">好评度</p>
+						<p class="hao_ping_digit" id="good_score"></p>
+						<p class="hao_ping_pfen">综合评分</p>
+					</div>
+					<div class="star_j pull-left" style="margin-top: 10px;">
+						<div class="clearfix" style="margin-left: 32px;">
+							<p class="hao_ping_d star_title pull-left">菜品</p>
+							<div class="star_xx pull-left" id="dish">
+							</div>
+						</div>
+						<div class="clearfix" style="margin-left: 32px;">
+							<p class="hao_ping_d star_title pull-left" style="line-height: 30px;">环境</p>
+							<div class="star_xx pull-left" style="margin-top: 5px;" id="environment">
+							</div>
+						</div>
+						<div class="clearfix" style="margin-left: 32px;">
+							<p class="hao_ping_d star_title pull-left">服务</p>
+							<div class="star_xx pull-left" style="margin-top: 2px;" id="service">
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	    <!--<div id="wrapper" style="height:auto;">
+			<div id="scroller" style="height:auto;">
+				<ul id='empInforlist' class="emInforCont" style="width:90%;margin:0 auto;"></ul>
+				<div id="pullUp">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+				</div>
+			</div>
+		</div>-->
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron" id="listnew" style="padding-bottom:5px;"></ul>
+			</div>
+		</div>
+	</body>	
+	<script src="js1/jquery-1.4.3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/Evaluationlist.js?t=139" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var pageNum=0;
+		mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+						auto:true,
+						show: false, //显示底部上拉加载提示信息，可选；      
+						contentrefresh: '正在加载...',
+						contentnomore: '没有更多数据了', //上拉无更多信息时提示信息
+						callback:function(){
+				                var self = this;
+				                setTimeout(function () {
+				                    //获取四个不同的区块显示的位置
+				                    var ul = self.element.querySelector('.mui-table-view');
+				                    pageNum++;
+				                    OnLoads(ul,self,pageNum);
+
+				                }, 150);
+				        }
+					}
+				}
+	    });
+	
+	</script>
+</html>

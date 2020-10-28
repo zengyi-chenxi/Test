@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>明厨亮灶视频直播</title>	
+		<link rel="stylesheet" type="text/css" href="css1/comment.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="font_356262_ek6dr89la73z0k9/iconfont.css"/>-->
+		<link rel="stylesheet" type="text/css" href="font_356262_ek6dr89la73z0k91/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/employee-Information.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/sc.css?t=130"/>
+		<link rel="stylesheet" type="text/css" href="css1/shipin.css"/>
+		<script src="js1/jquery-1.4.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>
+		<style>
+			.dvideo_img {
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+			    width: 100%;
+			    z-index: 1;
+			}
+			.tupian{
+				position: absolute;
+			    left: 0;
+			    top: 0;
+			    width: 100%;
+			    z-index: 1;
+			    display:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="show-information clearfix" style="width:100%;height:auto;">
+			<div class='d-video d-video-img' id="video1" style="width:100%;height:auto;position:relative;overflow:hidden;background:#000;" >
+                 <img class="tupian" src=''/>
+				<img src="img1/timg2.gif" class="dvideo_img"/>
+				<iframe id="showVideo" name="showVideo" src="" width="100%" height="auto" scrolling="no" frameborder="0" marginheight="0px" marginwidth='0px'></iframe>
+				<p style="position:absolute;top:10px;right:10px;color:#fff"></p>
+				<img src="img1/screenshot.png" id="caht" style="position:absolute;top:50px;right:2px;width:12%;"></img>
+            </div>
+			<div class='d-video' id="video2" style="width:100%;height:auto;display:none;">
+				<div id="video" style="height:295px;width:100%;background:#000000;"></div><!--position:absolute;top:0;left:0;-->
+				<p style="position:absolute;top:30px;right:10px;color:#fff;z-index:999;"></p>
+			</div>
+            <div class="cban">
+				<div class="realTime_monitoring items" id="realTime_monitoring">
+					<p class="infor_title" style="border-bottom: 1px solid #d6d6d6;"><span id="ctext"></span></p>
+					<div style="width: 100%;overflow: hidden;">
+						<div class="monitoring _flex" id="monitoring" style="position: relative;">
+							<!--<div class="monitoring_item">
+								<a href="" style="display: block;">
+									<div class="spKg">
+										<img src="img1/no-shipin.png"/>
+										<span>在线</span>
+									</div>
+									<p style="margin-top: 5px;">摄像头一</p>
+								</a>
+							</div>-->
+							<div style="width: 100%;height: 100%;background: #0f0;position: absolute;top: 0;left: 0;z-index: 99;display: none;" class="vedioMb"></div>
+						</div>
+					</div>
+				</div>
+            </div>
+		</div>
+	<script src="js1/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="js1/shipin.js?t=130"></script>
+	</body>		 
+</html>

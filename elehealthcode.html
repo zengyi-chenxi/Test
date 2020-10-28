@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>扫码内容展示</title>	
+		<link rel="stylesheet" type="text/css" href="css1/comment.css"/>
+		<link rel="stylesheet" type="text/css" href="font_356262_ek6dr89la73z0k9/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/employee-Information.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/sc.css"/>
+		<link rel="stylesheet" type="text/css" href="elecCss/elehealthcode.css"/>
+	</head>
+	<body style="background:#f4f5f4;position:relative;">
+		<div class="safaCode_infor safaCode_DescInfor" style="margin-top:5px;">
+			<div style="width:100%;overflow:hidden;">
+				<div style="width:85%;float:left;">
+					<h2 class="clearfix"><i id="ShopName"></i></h2>
+					<div class="clearfix safaCode_Contact">
+						<p class="pull-left ContactPeople">联系人:<span id="ContactPeople"></span></p>
+						<p class="pull-right">联系方式:<span id="ContactWay"></span></p>
+					</div>
+				</div>
+				<div style="width:15%;float:left;color:#00baad;text-align:right;padding-top:1.2rem;font-size:1.9rem;" id="login">
+					<span>登录</span>
+				</div>
+			</div>
+			<div class="safaCode_status">
+				<p>当前安全码：<span id="CodeColor"></span></p>
+				<h3 id="CodeDes"></h3>
+				<p style="color: #6E717A;">当前扫码时间：<span id="Scan_Code"></span></p>
+			</div>
+			<div class="safaCode_Desc">
+				<ul style="margin-top:15px;" class="clearfix">
+					<li>
+						<p style="margin-bottom:5px;">绿码</p>
+						<img src="img1/lvma.png" />
+						<p>正常</p>
+					</li>
+					<li>
+						<p style="margin-bottom:5px;">黄码</p>
+						<img src="img1/huangma.png" />
+						<p>有风险</p>
+					</li>
+					<li>
+						<p style="margin-bottom:5px;">红码</p>
+						<img src="img1/hongma.png" />
+						<p>高风险</p>
+					</li>
+					<li>
+						<p style="margin-bottom:5px;">灰码</p>
+						<img src="img1/gray.png" />
+						<p>未启用</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="safaCode_DescInfor" style="overflow:hidden;color:#6E717A;">
+			<div class="safaCode_Detail">
+				<p style="font-size:1.5rem;">详情：<span class="addtou">用户报警/投诉 > </span></p>
+				<ul>
+					<li style="background:url(img1/jiankang.png) no-repeat 2.5px;background-size:22px 22px;" class="clearfix">
+						<span class="pull-left">年度年检合格 : </span>
+						<p id="MoningCheck" class="pull-left">
+						</p>
+					</li>
+					<li style="background:url(img1/eleshijian.png) no-repeat 0 2.5px;background-size:22px 22px;float:right;" class="clearfix">
+						<span class="pull-left">电梯启用时间 : </span>
+						<p id="vedioCheck" class="pull-left">
+						</p>
+					</li>
+					<li style="background:url(img1/canju.png) no-repeat 0 2.5px;background-size:22px 22px;" class="clearfix">
+						<span class="pull-left">季度维护保养 : </span>
+						<p id="DeviceCheck" class="pull-left">
+						</p>
+					</li>
+					<li style="background:url(img1/yj.png) no-repeat 0 2.5px;background-size:24px 24px;float:right;padding-left:8.5%;padding-right:1.5%;" class="clearfix">
+						<span class="pull-left">资质/证件预警 :</span>
+						<p id="WaringCheck" class="pull-left">
+						</p>
+					</li>
+					<li style="background:url(img1/huanjing.png) no-repeat 0 2.5px;background-size:22px 22px;" class="clearfix">
+						<span class="pull-left">半月维护保养 : </span>
+						<p id="AirCheck" class="pull-left">
+						</p>
+					</li>
+					<li style="background:url(img1/dw.png) no-repeat 0 2.5px;background-size:24px 24px;float:right;" class="clearfix">
+						<span class="pull-left">安全人员考试 : </span>
+						<p id="PeopleTrain" class="pull-left">
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="safaCode_DescInfor" id="elewarning" style="overflow:hidden;font-size:1.5rem;">
+		    <p style="font-weight:bold;">
+		    	<img src="img1/elebaojing.png" style="width:1.6rem;"/>
+		    	紧急报警</p>
+		    <div class="elewarning">
+		    	<div class="elewarningdiv">
+		    		<img src="img1/eleyijianbao.png" style="width:30%;" id="elewarningbao"/>
+		    	</div>
+		    	<p class="elewarningp">提示：遇到紧急情况时，点击按钮则可紧急报警！</p>
+		    </div>		
+		</div>
+		<div style="width:100%;height:auto;text-align:center;margin-bottom:6rem;">
+			<img src="img1/logo.png" style="width:50%;margin:10px auto;"/>
+		</div>
+		<div class="healthbottom">
+			<div style="background:url(img1/yjjx.png) no-repeat;background-size:100%;width:50%;float:right;overflow:hidden;padding-bottom:2rem;">
+				<div class="healthbottomdivone" style="width:65%;" id="Downapp">
+					<p style="padding-right:1rem;">查看更多内容</p>
+					<p style="font-size:1.5rem;font-weight:bold;">点击下载app</p>
+				</div>
+				<div class="healthbottomdivone" style="width:34%;text-align:center;">
+					<img src="img1/youjian.png" style="width:35%;margin-top:0.7rem;"/>
+				</div>
+			</div>
+		</div>	
+	</body>
+	<script src="js1/jquery-1.4.3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="elecJs/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="elecJs/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

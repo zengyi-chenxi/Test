@@ -1,0 +1,232 @@
+﻿.td {
+	width: 100%;height: 100%;
+	position: fixed;
+	left: 0px;bottom: 0px;
+	z-index:999;
+	background: rgba(0, 0, 0, 0.2);
+	display: none;
+}
+.bot-td{
+	width:100%;height:auto;
+	position: absolute;
+	left:0px;bottom:0px;
+	background: #fff;
+}
+.a-col-td{
+	display: block;
+	position: relative;
+	/*padding: 0 15px;*/
+}
+.p-td{
+	height: 54px;
+	text-align: center;
+	line-height: 54px;
+	color:#2B2B2B;
+	margin: 0 15px;
+	font-size: 1.7rem;
+}
+.p-td-xian{
+	border-top: 1px solid #D3D3D3;
+}
+.p-qx{
+	border-top: 8px solid rgba(0, 0, 0, 0.2);
+	height: 64px;
+	line-height: 64px;
+	text-align: center;
+	font-size: 1.7rem;
+	color:#2B2B2B;
+}
+#file{
+	width:100%;
+	height:54px;
+	position:absolute;
+	left:0px;top:0px;
+	opacity: 0;
+}
+.a-menu-tc:hover .menu-tc{
+	display:block;
+	z-index:999;
+}
+.self-informal {
+	width: 100%;
+	height: 60px;
+	background: #fff;
+	float: left;
+	line-height: 60px;
+	margin-bottom:10px;
+}
+.d-img-tx{
+	width:64px;height:64px;
+	background: rgba(255,255,255,0.35);
+	border-radius: 50%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.img_tx{
+	width:100%;height:100%;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.p-nc{
+	float:right;
+	margin-right:20px;
+	color:#999;
+	font-size: 1.6rem;
+}
+figure div{
+	width: 100%;height: 100%;
+}
+.delectIcon{
+	position: absolute;
+	top: 0;right: 0;
+	width: 22px;height: 22px;
+    border-radius: 50%;
+    background: rgba(102,102,102,.8);
+    text-align: center;
+    color: #fff;
+}
+
+/*健康码扫描结果*/
+/*.safaCode_infor{
+	margin-top: 70px;
+	padding: 0 22px 20px 22px;
+	border-bottom: 10px solid #F5F5F5;
+}*/
+.safaCode_infor{
+	width:80%;
+    margin:0 auto;
+    margin-top:70px;
+    padding:10px 22px 20px 22px;
+    /*border: 1px solid #000;*/
+    border-radius:5px;
+    background:#fff;
+}
+
+.safaCode_infor h2{
+	font-size: 2.0rem;
+	color: #333;
+}
+.safaCode_infor h2 span{
+	margin-left: 20px;
+}
+.safaCode_infor h2 i{
+	font-style: normal;
+	/*display: block;
+	max-width: calc(100% - 130px);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;*/
+}
+.safaCode_Contact p,.safaCode_status p{
+	font-size: 1.5rem;
+	color: #B4B4B5;
+	margin-top: 10px;
+}
+.safaCode_Contact p:last-child{
+	/*margin-left: 30px;*/
+}
+.safaCode_status{
+	text-align: center;
+}
+.safaCode_status p:first-child{
+	font-size: 2.0rem;
+	/*color: #FA0909;*/
+	margin-top: 30px;
+	font-weight: bold;
+}
+/*.safaCode_DescInfor{
+	padding: 0 22px;
+}*/
+/*.safaCode_DescInfor h3{
+	font-weight: normal;
+	font-size: 1.5rem;
+	text-align: center;
+	margin-top: 20px;
+	color: #FA0909;
+}*/
+.safaCode_DescInfor{
+	padding:5px 22px;
+	width:80%;
+    margin:10px auto;
+    /*border: 1px solid #000;*/
+    border-radius:5px;
+    background:#fff;
+}
+.safaCode_status h3{
+	font-weight: normal;
+	font-size: 1.5rem;
+	text-align: center;
+	margin-top: 10px;
+	color: #FA0909;
+}
+.safaCode_DescInfor div{
+	color: #6E717A;
+	font-size: 1.5rem;
+	overflow:hidden;
+}
+.safaCode_Desc{
+	/*margin-top:20px;*/
+	margin:20px 0;
+}
+.safaCode_Desc ul{
+	margin-top: 5px;
+	font-size: 1.2rem;
+	display: flex;
+	justify-content:space-between;
+}
+.safaCode_Desc ul li{
+	/*width:25%;*/
+	float:left;
+	text-align:center;
+}
+.safaCode_Desc ul li img{
+	width: 40px;
+}
+
+.safaCode_Detail{
+	margin-top: 20px;
+}
+.safaCode_Detail ul{
+	/*margin-top: 5px;*/
+	/*padding-left: 5px;*/
+	margin:10px 0;
+	margin-bottom:20px;
+}
+.safaCode_Detail ul li{
+	height:30px;
+	line-height:30px;
+	padding-left:35px;	
+	margin:15px 0;	
+}
+.safaCode_Detail ul li p{
+	width: calc(100% - 110px);
+}
+.safaCode_Detail ul li p img{
+	width:20px;height:20px;
+	vertical-align: middle;
+	margin-top: -4px;
+	margin-left: 10px;
+	margin-right: 5px;
+}
+.ContactPeople{
+	max-width: calc(100% - 170px);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+#lr_number{
+	margin: 0 5px;
+	color: #35c5c5;
+	font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+

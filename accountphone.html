@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>绑定手机号</title>
+        <link rel="stylesheet" type="text/css" href="css1/comment.css"/>
+		<link rel="stylesheet" type="text/css" href="font_356262_ek6dr89la73z0k9/iconfont.css"/>
+		<link type='text/css' rel='stylesheet' href="css1/dl.css" />
+	</head>
+	<body>		
+		<div class='article_dl'>
+			<h3 class='article_dlp'>欢迎登录</h3>
+			<div class='d-artile'>
+				<div class='d-username' style="position:relative;border:none;border-bottom:1px solid #ccc;">
+					<i class="d-userId-kg pull-left"></i>
+					<input type='text' class='ipu-new' id='IdCard' placeholder="请输入社区+姓名"/>
+					<i class="del_icon clearBtn pull-right"></i>
+				</div>
+				<div class='d-username' style="position:relative;border:none;border-bottom:1px solid #ccc;">
+					<i class="d-phone-kg pull-left"></i>
+					<input type='text' class='ipu-new' id='Idphone' placeholder="请输入手机号"/>
+					<i class="del_icon clearBtn pull-right"></i>
+				</div>
+				<div class="d-code" style="border-bottom:1px solid #ccc;">
+					<i class="d-code-kg pull-left" ></i>
+					<input type="text" placeholder="请填写验证码" id="Phonecodetwo"/>
+					<input id="Phonenumbertwo" type="button" value="获取验证码" onclick="Getcode(this)"/>
+			    </div>
+				<div class='d-password'>
+					<i class="d-password-kg pull-left" ></i>
+					<input type='password' class='ipu-old' id='passwordnew' placeholder="请输入新密码" />
+				</div>
+			</div>		   
+		    <a href='#' class='a-col-btn' style="margin-top:100px;display:block;" onclick="logn()">
+				<p class='log_in'>登录</p>
+			</a>			
+	   </div>
+	</body>
+<script src="js1/jquery-1.4.3.js" type="text/javascript" charset="utf-8"></script>
+<script src="js1/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="js1/accountphone.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+var num=0;
+$(function(){
+		//获取学校列表信息
+//		GetSchool();
+});
+	
+function GetSchool(){
+		$.ajax({
+			url: contextUrl+"/Yc.svc/GetSchoolList?jsoncallback=?",
+			timeout : 30000, //超时时间设置，单位毫秒 
+			type: "get",
+			dataType: "json",
+			success:function(data){
+				var json = eval(data);
+				console.log(json);
+				if(json!=undefined || json!=null){
+					$.each(json, function(index,arr) {
+						var ctext=json[index].Ctext;
+						var keyid=json[index].KeyId;
+						 $("#School").append("<option value='"+keyid+"'>"+ctext+"</option>");  //为Select追加一个Option(下拉项)
+					})
+				}
+				//下一步
+		        goZC();
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+				alert("网络延迟,请稍后再试！");
+			},
+			complete:function(XMLHttpRequest, textStatus) {
+				if(textStatus=='timeout'){//超时,status还有success,error等值的情况
+					alert("网络延迟,请稍后再试！");
+				}
+			}
+		})
+	}
+	
+
+//判断身份证号是否已被注册过
+function RepeatID(userName){
+	$.ajax({
+			url: contextUrl+"/Yc.svc/IsRegistIDCard?jsoncallback=?",
+			timeout : 30000, //超时时间设置，单位毫秒 
+			data: {
+				IDCard:userName
+			},
+			type: "get",
+			dataType: "json",
+			success:function(data){
+					var json = eval(data);
+					//console.log(json);
+					if( json == 1){
+						$("#userNamees").html("该用户名已被注册！");
+		                $("#userNamees").css('display','block');
+					}else{
+						$("#userNamees").html("");
+		                $("#userNamees").css('display','none');
+					}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+					alert("网络延迟,请稍后再试！");
+			},
+			complete:function(XMLHttpRequest, textStatus) {
+					if(textStatus=='timeout'){//超时,status还有success,error等值的情况
+						alert("网络延迟,请稍后再试！");
+					}
+			}
+		})
+}
+	
+	
+//下一步
+function goZC(){
+		$(".a-col-btn").click(function(){
+			var IdCard=$('#IdCard').val();
+			var School=$('#School option:selected').val();
+			var Class=$('#Class option:selected').val();
+			var ChirldenName=$('#ChirldenName').val();
+			console.log(IdCard);console.log(School);
+			console.log(Class);console.log(ChirldenName);
+			if( IdCard ==''){
+				alert('请输入身份证号');
+				return false;
+			}
+			if( School ==''){
+				alert('请选择归属学校');
+				return false;
+			}
+			if( Class ==''){
+				alert('请选择班级');
+				return false;
+			}
+			if( ChirldenName ==''){
+				alert('请输入孩子姓名');
+				return false;
+			}
+			console.log(num);
+			var arrClass=[],arrChirldenName=[],arr1,arr2;
+			if(num != 0){
+				arrClass.push(Class+',');
+			    arrChirldenName.push(ChirldenName+',');
+				for(var i=1;i <= num;i++){
+					var Classs= $('#Class'+i+' option:selected').val();
+					var ChirldenNames= $('#ChirldenName'+i+'').val();
+					if( Classs != undefined || ChirldenNames != undefined){
+						arrClass += Classs+',';
+					    arrChirldenName += ChirldenNames+',';
+					}
+				}
+			}else{
+				arrClass.push(Class);
+				arrChirldenName.push(ChirldenName);
+			}
+			arr1=arrClass.toString();
+			arr2=arrChirldenName.toString();
+			if( arr1.substr(arr1.length-1) == ','){
+				arr1 = arr1.substring(0,arr1.length-1);
+			}
+			if( arr2.substr(arr2.length-1) == ','){
+				arr2 = arr2.substring(0,arr2.length-1);
+			}
+			console.log(arr1);
+			console.log(arr2);
+			
+            // 存储用户信息 
+			var user =[{
+			  UserName:IdCard,
+			  School:School,
+			  arr1:arr1,
+			  arr2:arr2
+			}];
+			var str =JSON.stringify(user);
+			localStorage.setItem("newzc",str);
+			window.location.href='zc-finder.html';
+	
+		})
+}
+	
+	
+</script>
+</html>

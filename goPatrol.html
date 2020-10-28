@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>扫码内容展示</title>	
+		<link rel="stylesheet" type="text/css" href="css1/comment.css"/>
+		<link rel="stylesheet" type="text/css" href="font_356262_ek6dr89la73z0k9/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/employee-Information.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/goPatrol.css"/>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.3&key=9f831272996d8fb9c2765393725e3f96"></script>
+		<style>
+			.busPatrolSearth input{
+				border: 1px solid #35d7ae;
+			    border-radius: 5px;
+			    font-size:1.4rem;
+			}
+			[class^='forbid_content']{
+				padding-top: 1rem;
+			}
+			.disappeara{
+				display: none;
+			}
+			.searchContent{
+				max-height: 55vh;
+    			overflow-y: auto;
+			}
+		</style>
+	</head>
+	<body style="background:#f4f5f4;" id="contentBody">
+		<div class="content_wrapper">
+			<!--商家名称搜索与巡查内容-->
+			<div class="busPatrolSearth contentDiv">
+				<!--商家名称搜索-->
+				<div>
+					<div class="searchTop">
+						<p class="bus_title">商家名称</p>
+						<div class="search">
+							<input type="text" id="searchBtn" placeholder="请输入商家名称" />
+							<button class="searchB">
+	                            <img src="img1/search.png">
+	                        </button>
+						</div>
+					</div>
+					<p style="height: 7.5rem;" class="hgt"></p>
+					<div class="searchContent">
+						<ul>
+						</ul>
+					</div>
+					<!--商家描述内容-->
+					<div>
+						<textarea name="" rows="4" cols="" placeholder="请输入内容" id="CheckContent"></textarea>
+					</div>
+					<!--现场照片-->
+					<div class="photoScene fixed contentMarginTop" style="display:block;">
+						<p class="bus_title">现场照片</p>
+						<div class="loadPhone">
+							<ul class='pic-sc img-list clearfix'>
+								<p class="createPhone"  onclick="tcsc(this)"><span>+</span><span style="display: block;">上传照片</span></p>
+							</ul>
+						</div>
+						<p style="display: none;" id="addressPosition"></p>
+						<p class="addrP" style="display: none;"><span class="addr"></span><span class="addrContent"></span></p>
+					</div>
+				</div>
+			</div>
+			<!--商户信息-->
+			<div class="busInfo contentDiv contentMarginTop">
+				<p class="bus_title">商户信息</p>
+				<ul class="contentMarginTop">
+					<li>
+						<span>地址：</span>
+						<input type="text" id="address" KeyId = "" placeholder="请输入单位地址"/>
+					</li>
+					<li>
+						<span>法定代表人：</span>
+						<input type="text" id="legalPerson" placeholder="请输入法人姓名"/>
+					</li>
+					<li>
+						<span>电话：</span>
+						<input type="text" id="telphone" placeholder="请输入电话"/>
+					</li>
+					<li>
+						<span>从业人员：</span>
+						<input type="text" id="employee" placeholder="请输入从业人员人数"/>
+					</li>
+					<li>
+						<span>持健康证明：</span>
+						<input type="text" id="healthCard" placeholder="请输入持健康证明人数"/>
+					</li>
+					<li class="disappeara">
+						<span>上次排查人：</span>
+						<input type="text" id="LastUser" disabled="disabled"/>
+					</li>
+					<li class="disappeara red">
+						<span>上次排查等级：</span>
+						<input type="text" id="CheckGrade" class="red" disabled="disabled"/>
+					</li>
+					<li class="disappeara red">
+						<span>上次巡查时间：</span>
+						<input type="text" id="CheckTime" class="red" disabled="disabled"/>
+					</li>
+				</ul>
+			</div>
+			<!--商户类别-->
+			<div class="busClassify contentDiv contentMarginTop">
+				<div class="top_content">
+					<p class="bus_title">商户类别：</p>
+					<p class="arrow" onclick="selectClassify()" indexClassify = "0">请选择</p>
+				</div>
+				<div class="classifySelect">
+					<ul>
+						<li value="">请选择</li>
+						<li value="1">食品加工小作坊</li>
+						<li value="2">销售单位</li>
+						<li value="3">餐饮服务单位</li>
+						<li value="4">小摊贩</li>
+					</ul>
+				</div>
+				<!--食品加工小作坊-->
+				<div class="inspect_content1">
+					<p class="bus_title">巡查内容</p>
+					<ul class="contentMarginTop">
+						<li>
+							<p>1、是否亮照亮证</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>2、生活区、生产区是否分开</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>3、生熟是否有效分开</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>4、是否涉嫌造假<span class="tips">（确认勾选造假内容：厂名厂址，生产日期）</span></p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>5、采购的食品原料是否有进货票据</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>6、采购的肉类是否索取了检验检疫合格证明</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>7、存在其他相关问题或整改意见各建议</p>
+							<textarea name="" rows="4" cols="" class="Opinion"></textarea>
+						</li>
+					</ul>
+				</div>
+				<!--销售单位-->
+				<div class="inspect_content2">
+					<p class="bus_title">巡查内容</p>
+					<ul class="contentMarginTop">
+						<li>
+							<p>1、是否亮证亮照</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>2、销售散装食品的、直接入口的是否持有有效的健康证明</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>3、冷冻、冷藏食品是否符合储存条件</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>4、是否存在销售无标签食品</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>5、是否销售有过期、变质食品<span class="tips">（对过期食品，拍照上传）</span></p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>6、随机抽取几个产品，看是否有进货票据<span class="tips">（如有有销售肉类，则必须抽取有肉类）</span></p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>7、存在其他相关问题或整改意见各建议</p>
+							<textarea name="" rows="4" cols="" class="Opinion"></textarea>
+						</li>
+					</ul>
+				</div>
+				<!--餐饮服务单位-->
+				<div class="inspect_content3">
+					<p class="bus_title">巡查内容</p>
+					<ul class="contentMarginTop">
+						<li>
+							<p>1、是否亮证亮照</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>2、证、照是否有过期</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li class="equipment3">
+							<p>3、餐具是否有清洗消毒设施</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+							<ul class="tips">
+								<li>
+									<p><span class="chooseSpan" index="1"></span>消毒柜</p>
+								</li>
+								<li>
+									<p><span class="chooseSpan" index="2"></span>蒸锅消毒</p>
+								</li>
+								<li>
+									<p><span class="chooseSpan" index="3"></span>化学消毒</p>
+								</li>
+								<li>
+									<p><span class="chooseSpan" index="4"></span>消毒设施</p>
+								</li>	
+							</ul>
+						</li>
+						<li class="dishLi">
+							<p>4、是否制作凉菜</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+							<div class="tips" style="margin-top: 1.5rem;">
+								<p>是否在凉菜专间进行</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" coldFish = "1" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" coldFish = "1" flag = "2"></span><span>否</span></p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<p>5、索票索证是否存档</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>6、安全生产档：使用的液化气（钢）瓶，是否在有效期内或有检定证明</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>7、存在其他相关问题或整改意见各建议</p>
+							<textarea name="" rows="4" cols="" class="Opinion"></textarea>
+						</li>
+					</ul>
+				</div>
+				<!--小摊贩-->
+				<div class="inspect_content4">
+					<p class="bus_title">巡查内容</p>
+					<ul class="contentMarginTop">
+						<li>
+							<p>1、是否制作销售下列食品：卤肉、凉皮、米线、馒头面制品（不包括现场热加工制售）</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+							<ul class="tips">
+								<li>
+									<span>主要原材料采购来源：</span>
+									<input type="text" id="ProcurementSource" placeholder="请输入">
+								</li>
+							</ul>
+						</li>
+						<li>
+							<ul>
+								<li>
+									<span>2、摊主姓名：</span>
+									<input type="text" id="PeddlerName" placeholder="请输入">
+								</li>
+								<li>
+									<span>身份证号：</span>
+									<input type="text" id="PeddlerId" placeholder="请输入">
+								</li>
+								<li>
+									<span>联系方式：</span>
+									<input type="text" id="PeddlerTel" placeholder="请输入">
+								</li>
+								<li>
+									<span>摊位位置：</span>
+									<input type="text" id="PeddlerAddress" placeholder="请输入">
+								</li>
+							</ul>
+						</li>
+						<li>
+							<p>3、存在其他相关问题或整改意见各建议</p>
+							<textarea name="" rows="4" cols="" class="Opinion"></textarea>
+						</li>
+					</ul>
+				</div>
+				<!--签名-->
+				<!--<div class="contentMarginTop">
+					
+				</div>-->
+			</div>
+			<div id="content_bottom"> 
+				<!--巡查内容-->
+				<div class="Patrol_content contentMarginTop contentDiv">
+					<p class="bus_title">巡查内容</p>
+					<div class="contentList">
+						<ul>
+						</ul>
+						<p class="judgeResult bus_title">评定结果 : <span></span></p>
+					</div>
+				</div>
+				<!--商户属性-->
+				<div class="busNature contentDiv contentMarginTop">
+					<p class="bus_title">商户属性</p>
+					<ul class="contentMarginTop">
+						<li>
+							<p>1、本巡查单位是否属于“四小”单位（小作坊、小餐饮、小摊贩、小食品店）、无证照或证照不全单位、集贸市场及经营户等。</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "0"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>2、本巡查单位是否属于重点区域（农村、城乡结合部、校园及周边、食品批发集散地及周边、车站码头和城市综合体等区域）。</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "0"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>3、本巡查单位是否属于重点对象（业态，食品生产经营者（含"前店后坊"、熟食制作和销售场所、小饭桌和看护点、私人会所"一桌餐"）和闲置用房（无证照生产经营）、办公大厦（"会销"活动）、冷库等可能用于食品生产经营活动的场所）。</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "0"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>4、是否将本单位列入日常巡查清单。</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "0"></span><span>否</span></p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class='busSign contentDiv contentMarginTop'>
+				<p class="bus_title">商家/巡查人签名<span id="restSign">重新签名</span></p>
+				<div class="addSign" onclick="clickSign()">
+					<span>点击添加签名</span>
+					<img src="" alt="" />
+				</div>
+			</div>
+			<button class="submitBtn btn">发布</button>
+		</div>
+		<!--现场照片点击弹出底部选择框-->
+		<div class='td' onclick='dis_td()'>
+			<div class='bot-td'>
+				<a class='a-col-td'>
+					<input type="file" id="cameraInput"  accept="image/*" capture="camera"/>
+					<p class='p-td'>拍照</p>
+				</a>
+				<a class='a-col-td'>
+					<input type="file" id="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
+					<p class='p-td' style="border-top: 1px solid #D3D3D3;">相册</p>
+				</a>
+				<a class='a-col-td' onclick='dis_td()' style="border-top: 8px solid rgba(0, 0, 0, 0.2);">
+					<p class='p-td'>取消</p>
+				</a>
+			</div>
+		</div>
+		<!--附件内容弹出框-->
+		<div class="proto1"></div>
+		<div class="proto">
+	        <div class="protoCon">
+	            <span class="return">×</span>
+	            <div class="forbidList">
+	            	<!--附件一-->
+	            	<div class="forbid_content1">
+	            		<p class="boldTitle">国家禁限用高毒农药名单</p>
+	            		<ul>
+	            		</ul>
+	            	</div>
+	            	<!--附件二-->
+	            	<div class="forbid_content2">
+	            		<p class="boldTitle">国家禁限用兽药名单</p>
+	            		<table class="light" border="1" cellspacing="0">
+	            			<thead>
+	            				<tr>
+	            					<td width="10%">序号</td>
+	            					<td>兽药及其它化合物(药物)名称</td>
+	            					<td width="20%">禁止用途</td>
+	            					<td width="20%">禁用动物</td>
+	            				</tr>
+	            			</thead>
+	            			<tbody>
+	            			</tbody>
+	            		</table>
+	            	</div>
+	            	<!--附件三-->
+	            	<div class="forbid_content7">
+	            		<!--表1-->
+	            		<p class="boldTitle">食品中可能违法添加的非食用物质名单（表一）</p>
+	            		<table class="light" border="1" cellspacing="0">
+	            			<thead>
+	            				<tr>
+	            					<td width="10%">序号</td>
+	            					<td width="35%">名称</td>
+	            					<td>可能添加的食品品种</td>
+	            				</tr>
+	            			</thead>
+	            			<tbody id="addFoodList1">
+	            			</tbody>
+	            		</table>
+	            		<!--表2-->
+	            		<p class="boldTitle">食品中可能滥用的食品添加剂品种名单（表二）</p>
+	            		<table class="light" border="1" cellspacing="0">
+	            			<thead>
+	            				<tr>
+	            					<td width="10%">序号</td>
+	            					<td width="35%">食品品种</td>
+	            					<td>可能易滥用的添加剂品种</td>
+	            				</tr>
+	            			</thead>
+	            			<tbody id="addFoodList2">
+	            			</tbody>
+	            		</table>
+	            	</div>
+	            </div>
+	        </div>
+	    </div>
+	    <div id="loading"><img src='img1/loading.gif'/></div>
+	    <!--签名弹出框-->
+	    <div class="signBox1"></div>
+		<div class="signBox">
+	        <div class="signBoxCon">
+	        	<span>清除</span>
+	            <div class="" id="signature">
+	            </div>
+	        </div>
+	        <button class="btn signBtn">确定</button>
+	    </div>
+	</body>
+	<script src="js1/jquery-1.4.3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/common.js" type="text/javascript" charset="utf-8"></script>
+	<!--<script type='text/javascript' src="PhotoSwipe-4.1.2/dist/photoswipe.min.js?v=4.1.1-1.0.4"></script>
+	<script type='text/javascript' src="PhotoSwipe-4.1.2/dist/photoswipe-ui-default.min.js?v=4.1.1-1.0.4"></script>-->
+	<script src="js1/phoneLoadMore.js" type="text/javascript" charset="utf-8"></script>
+	<!--<script src="js1/imgLarge.js" type="text/javascript" charset="utf-8"></script>-->
+	<script src="js1/remAdaptation.js" type="text/javascript"></script>
+	<script src="js1/goPatrol.js" type="text/javascript"></script>
+	<script src="js1/jSignature.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/jSignature.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/hidpi-canvas.min.js" type="text/javascript" charset="utf-8"></script>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>维保记录</title>	
+		<link rel="stylesheet" type="text/css" href="../css1/comment.css"/>
+		<link rel="stylesheet" type="text/css" href="../font_356262_ek6dr89la73z0k9/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../css1/employee-Information.css"/>
+		<link rel="stylesheet" type="text/css" href="../elecCss/maintenceRecord.css"/>
+		<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.3&key=9f831272996d8fb9c2765393725e3f96"></script>
+		<style>
+			.busPatrolSearth input{
+				border: 1px solid #35d7ae;
+			    border-radius: 5px;
+			    font-size:1.4rem;
+			}
+			[class^='forbid_content']{
+				padding-top: 1rem;
+			}
+			.disappeara{
+				display: none;
+			}
+			.searchContent{
+				max-height: 55vh;
+    			overflow-y: auto;
+			}
+			[class^='inspect_content']{
+				display: none;
+			}
+			[class^='inspect_content'] ul{
+				font-size: 1.4rem;
+				color:#464646;
+			}
+			[class^='inspect_content'] ul li{
+				margin-top: 10px;
+			}
+			.hydrauLift{
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="background:#f4f5f4;" id="contentBody">
+		<div class="content_wrapper">
+			<!--头部-->
+			<div class="top_wrapper">
+				<div class="elecBg_title">
+					<p>
+						<img src="../img1/number_icon.png" alt="" align="absmiddle"/>
+						<span>电梯编号:</span>
+						<span id="ElevatorNumber"></span>
+					</p>
+				</div>
+			</div>
+			<!--电梯信息-->
+			<div class="busInfo contentDiv contentMarginTop">
+				<p class="bus_title"><img src="../img1/elecInfo_icon.png" align="absmiddle" alt="" style="margin-right: 5px;"/>电梯信息</p>
+				<ul class="contentMarginTop">
+					<!--<li>
+						<span>注册代码：</span>
+						<input type="text" id="address" KeyId = "" disabled="disabled"/>
+					</li>-->
+					<li>
+						<span>电梯地址：</span>
+						<input type="text" id="ElevatorAddress" disabled="disabled"/>
+					</li>
+					<li>
+						<span>电梯类型：</span>
+						<input type="text" id="TypeName" disabled="disabled"/>
+					</li>
+					<input type="hidden" id="ElevatorType"/>
+					<input type="hidden" id="MaintenType"/>
+					<input type="hidden" id="Ctext"/>
+					<li>
+						<span>电梯品牌：</span>
+						<input type="text" id="BrandName" disabled="disabled"/>
+					</li>
+					<li>
+						<span>维保单位：</span>
+						<input type="text" id="WeiBaoName" disabled="disabled"/>
+					</li>
+					<li>
+						<span>维保人员：</span>
+						<input type="text" id="HelperName" disabled="disabled"/>
+					</li>
+					<li>
+						<span>联系方式：</span>
+						<input type="text" id="Tele" disabled="disabled"/>
+					</li>
+					<li class="red">
+						<span>上次维保日期：</span>
+						<input type="text" id="preDate" class="red" disabled="disabled"/>
+					</li>
+				</ul>
+			</div>
+			<!--维保项目内容-->
+			<div class="busClassify contentDiv contentMarginTop">
+				<p class="bus_title"><img src="../img1/maintence_icon.png" align="absmiddle" alt="" style="margin-right: 5px;"/>维保项目内容</p>
+				<div class="top_content">
+					<p class="bus_title">维保类型</p>
+					<p class="arrow" onclick="selectClassify()" indexClassify = "0"><span>请选择</span><i class="icon iconfont icon-xiajiantou"></i></p>
+				</div>
+				<div class="classifySelect">
+					<ul>
+						<li value="">请选择</li>
+						<li value="1">半月保</li>
+						<li value="2">季度保</li>
+						<li value="3">半年保</li>
+						<li value="4">年度保</li>
+					</ul>
+				</div>
+				<!--载货电梯-->
+				<div class="cargoLSift">
+					<!--半月保-->
+					<div class="inspect_content1">
+						<ul class="contentMarginTop">
+							<li>
+								<p>1、机房、轮滑间环境是否清洁，门窗是否完好、照明是否正常</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>2、手动紧急操作装置是否齐全，是否在指定位置</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>3、驱动主机运行时是否有异常振动和异常声响</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>4、制动器各销轴部位是否润滑，动作灵活</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>5、制动器间隙打开时制动衬是否发生摩擦，间隙值是否符合制造单位要求</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>6、编码器是否清洁，安装牢固</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!--季度保-->
+					<div class="inspect_content2">
+						<ul class="contentMarginTop">
+							<li>
+								<p>1、减速机润滑油，油量是否适宜，是否除蜗杆伸出端外均无渗漏</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>2、制动衬是否清洁，磨损量不超过制造单位要求</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>3、编码器工作是否正常</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>4、选层器动静触点是否清洁，无烧蚀</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<!--<li>
+								<p>5、拽引轮槽、悬挂装置是否清洁，钢丝绳无严重油腻，张力均匀，符合制造单位要求</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>-->
+							<li>
+								<p>5、限速器轮槽，限速器钢丝绳是否清洁，是否有严重油腻</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>6、靴衬、滚轮是否清洁，磨损量是否超过制作单位要求</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!--半年保-->
+					<div class="inspect_content3">
+						<ul class="contentMarginTop">
+							<li>
+								<p>1、电动机与减速机联轴器螺栓连接是否松动，是否弹性外观良好，是否有老化等现象</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>2、拽引轮、导向轮轴承部是否有异常声，振动，是否润滑良好</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>3、拽引轮槽磨损量是否超过制作单位要求</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>4、制动器上检测开关工作是否正常，制动器动作是否可靠/p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>5、控制柜内各接线端子是否牢固、整齐、线号是否齐全清晰</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>6、控制柜各仪表显示是否正确</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!--全年保-->
+					<div class="inspect_content4">
+						<ul class="contentMarginTop">
+							<li>
+								<p>1、减速机润滑油是否按照制造单位要求适时更换，保证油质符合要求</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>2、控制柜接触器，继电器触点接触是否良好</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>3、制动器铁芯（柱塞）是否进行清洁、润滑、检查，磨损量是否超过制造单位要求</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>4、制动器制动能力是否符合单位要求，是否保持足够的制动力，是否在必要时进行轿厢装载125%额定载重量的制动试验</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>5、导电回路绝缘性能测试是否符合标准</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>6、限速器安全钳联动试验（对于使用年限不超过15年的限速器，每2年进行一次限速器动作速度校验；对于使用年限超过15年的限速器，每年进行一次限速器动作速度校验）是否正常</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--液压电梯-->
+				<div class="hydrauLift">
+					<!--半月保-->
+					<div class="inspect_content5">
+						<ul class="contentMarginTop">
+							<li>
+								<p>1、机房环境是否清洁，室温是否符合要求，照明是否正常</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>2、机房内手动泵操作装置是否齐全，是否在指定位置</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>3、油箱油量、油温是否正常、无杂质、无漏油现象</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>4、电动机运作时是否有异常振动和异常声</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>5、层门和轿门旁路装置工作是否正常</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+							<li>
+								<p>6、阀、泵、消音器、油管、表、接口等部件是否有漏油现象</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="content_bottom"> 
+				<!--签到定位-->
+				<div class="SignMaintence contentMarginTop contentDiv">
+					<p class="addr_title" onclick="addrSign()">
+						<img src="../img1/maintence_addr.png" alt="" width="80%"/>
+						<span>签到定位</span>
+						<p style="display: none;" id="addressPosition"></p>
+						<input type="hidden" id="postionPC"/>
+					</p>
+					<ul>
+						<!--<li>
+							<div class="nearsite-message">
+								<div class="avatar">
+									<img src="../img1/lawpath_dian.png">
+								</div>
+								<div class="contents">
+									<div class="cont_n">保利物业  B1-05</div>
+									<div class="cont_t">
+										<span>维保时间：</span>
+										<span>2020/1/7 11:08:00</span>
+									</div>
+								</div>
+							</div>
+							<div class="vertbar"></div>
+						</li>-->
+					</ul>
+				</div>
+				<!--下次维护时间-->
+				<div class="nextMaintenceTime contentDiv">
+					<p>
+						<span class="bus_title">下次维保时间</span>
+						<input type="date" id="nextDate"/>
+					</p>
+				</div>
+				<!--备注-->
+				<div class="remarksDiv contentDiv">
+					<p class="bus_title">备注</p>
+					<textarea name="" rows="4" cols="" id="remarks" style="margin-top: 10px;"></textarea>
+				</div>
+			</div>
+			<button class="submitBtn btn">提交</button>
+		</div>
+	    <div id="loading"><img src='../img1/loading.gif'/></div>
+	</body>
+	<script src="../js1/jquery-1.4.3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js1/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../elecJs/maintenceRecord.js" type="text/javascript"></script>
+</html>

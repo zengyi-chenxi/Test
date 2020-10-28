@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>扫码内容展示</title>	
+		<link rel="stylesheet" type="text/css" href="css1/comment.css"/>
+		<link rel="stylesheet" type="text/css" href="font_356262_ek6dr89la73z0k9/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css1/employee-Information.css"/>
+		<link href="PhotoSwipe-4.1.2/dist/photoswipe.css?v=4.1.1-1.0.4" rel="stylesheet" />
+		<link href="PhotoSwipe-4.1.2/dist/default-skin/default-skin.css?v=4.1.1-1.0.4" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css1/goPatrol.css"/>
+		<link type='text/css' rel='stylesheet' href="css1/CheckDetail.css" />
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.3&key=9f831272996d8fb9c2765393725e3f96"></script>
+		<style>
+			#searchBtn{
+				background: none;
+			}
+			.busPatrolSearth input{
+				font-size:1.5rem;
+			}
+			/*.chooseSpan{
+				display: none;
+			}*/
+			.contentList .chooseSpan{
+				display: inline-block!important;
+			}
+			.busInfo ul li input{
+				background: none;
+			}
+			.Checklistli_middle {
+			    width: 94%;
+			    height: auto;
+			    overflow: hidden;
+			    margin: 0 auto;
+			}
+			.my-gallery figure {
+			   	width: 31%;
+			    height: 9rem;
+			    margin-right: 2%;
+			    display: inline-block;
+			}
+			.my-gallery figure div, .my-gallery figure div a{
+			    height: 100%;
+			    width:100%;
+			}
+			.Checklistli_middle img {
+			    width: 100%;
+			    height: 19rem;
+			    margin-right: 0.3rem;
+			    margin-bottom: 0.3rem;
+			}
+			.loadPhone .Checklistli_middle img{
+				height: 100%;
+			}
+			.photoScene{
+				padding-bottom: 2rem;
+			}
+			.Patrol_content ul li,.disappeara{
+				display: none;
+			}
+			.forbid_content1 .chooseSpan{
+				display: none;
+			}
+			[class^='forbid_content']{
+				padding-top: 2rem;
+			}
+			[class^='forbid_content'] ul li,[class^='forbid_content'] tbody tr{
+				display: none;
+			}
+			.marginTop{
+				margin-top:10px;
+			}
+			.arrow{
+				background: none!important;
+			}
+		</style>
+	</head>
+	<body style="background:#f4f5f4;">
+		<div class="content_wrapper">
+			<!--商家名称搜索与巡查内容-->
+			<div class="busPatrolSearth contentDiv">
+				<!--商家名称搜索-->
+				<div>
+					<div class="searchTop">
+						<p class="bus_title">商家名称</p>
+						<div class="search">
+							<input type="text" id="searchBtn" disabled="disabled"/>
+						</div>
+					</div>
+					<p style="height: 7.5rem;" class="hgt"></p>
+					<div class="searchContent">
+						<ul>
+						</ul>
+					</div>
+					<!--现场照片-->
+					<div class="photoScene fixed" style="display:none;">
+						<p class="bus_title">现场照片</p>
+						<div class="loadPhone">
+							<ul class='Checklistli_middle'>
+								
+							</ul>
+						</div>
+						<p class="addrP"><span class="addr"></span><span class="addrContent"></span></p>
+					</div>
+				</div>
+			</div>
+			<div id="content_bottom"> 
+				<!--商户信息-->
+				<div class="busInfo contentDiv contentMarginTop">
+					<p class="bus_title">商户信息</p>
+					<ul class="contentMarginTop">
+						<li>
+							<span>地址：</span>
+							<input type="text" id="address" disabled="disabled"/>
+						</li>
+						<li>
+							<span>法定代表人：</span>
+							<input type="text" id="legalPerson" disabled="disabled"/>
+						</li>
+						<li>
+							<span>电话：</span>
+							<input type="text" id="telphone" disabled="disabled"/>
+						</li>
+						<li>
+							<span>从业人员：</span>
+							<input type="text" id="employee" disabled="disabled"/>
+						</li>
+						<li>
+							<span>持健康证明：</span>
+							<input type="text" id="healthCard" disabled="disabled"/>
+						</li>
+						<!--<li class="disappeara">
+							<span>上次排查等级：</span>
+							<input type="text" id="CheckGrade" disabled="disabled"/>
+						</li>
+						<li  class="disappeara">
+							<span>上次巡查时间：</span>
+							<input type="text" id="CheckTime" disabled="disabled"/>
+						</li>-->
+					</ul>
+				</div>
+							<!--商户类别-->
+			<div class="busClassify contentDiv contentMarginTop">
+				<div class="top_content">
+					<p class="bus_title">商户类别：</p>
+					<p class="arrow"></p>
+				</div>
+				<div class="classifySelect">
+					<ul>
+						<li value="">请选择</li>
+						<li value="1">食品加工小作坊</li>
+						<li value="2">销售单位</li>
+						<li value="3">餐饮服务单位</li>
+						<li value="4">小摊贩</li>
+					</ul>
+				</div>
+				<!--食品加工小作坊-->
+				<div class="inspect_content1" id="inspect_content3">
+					<p class="bus_title">巡查内容</p>
+					<ul class="contentMarginTop">
+						<li>
+							<p>1、是否亮照亮证</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>2、生活区、生产区是否分开</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>3、生熟是否有效分开</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>4、是否涉嫌造假<span class="tips">（确认勾选造假内容：厂名厂址，生产日期）</span></p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>5、采购的食品原料是否有进货票据</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>6、采购的肉类是否索取了检验检疫合格证明</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>7、存在其他相关问题或整改意见各建议</p>
+							<textarea name="" rows="4" cols="" class="Opinion" disabled="disabled"></textarea>
+						</li>
+					</ul>
+				</div>
+				<!--销售单位-->
+				<div class="inspect_content2" id="inspect_content2">
+					<p class="bus_title">巡查内容</p>
+					<ul class="contentMarginTop">
+						<li>
+							<p>1、是否亮证亮照</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>2、销售散装食品的、直接入口的是否持有有效的健康证明</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>3、冷冻、冷藏食品是否符合储存条件</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>4、是否存在销售无标签食品</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>5、是否销售有过期、变质食品<span class="tips">（对过期食品，拍照上传）</span></p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>6、随机抽取几个产品，看是否有进货票据<span class="tips">（如有有销售肉类，则必须抽取有肉类）</span></p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>7、存在其他相关问题或整改意见各建议</p>
+							<textarea name="" rows="4" cols="" class="Opinion" disabled="disabled"></textarea>
+						</li>
+					</ul>
+				</div>
+				<!--餐饮服务单位-->
+				<div class="inspect_content3" id="inspect_content1">
+					<p class="bus_title">巡查内容</p>
+					<ul class="contentMarginTop">
+						<li>
+							<p>1、是否亮证亮照</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>2、证、照是否有过期</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li class="equipment3">
+							<p>3、餐具是否有清洗消毒设施</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+							<ul class="tips">
+								<li>
+									<p><span class="chooseSpan" index="1"></span>消毒柜</p>
+								</li>
+								<li>
+									<p><span class="chooseSpan" index="2"></span>蒸锅消毒</p>
+								</li>
+								<li>
+									<p><span class="chooseSpan" index="3"></span>化学消毒</p>
+								</li>
+								<li>
+									<p><span class="chooseSpan" index="4"></span>消毒设施</p>
+								</li>	
+							</ul>
+						</li>
+						<li class="dishLi">
+							<p>4、是否制作凉菜</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+							<div class="tips" style="margin-top: 1.5rem;">
+								<p>是否在凉菜专间进行</p>
+								<div class="radioDiv">
+									<p><span class="yuannoxuan" coldFish = "1" flag = "1"></span><span>是</span></p>
+									<p><span class="yuannoxuan" coldFish = "1" flag = "2"></span><span>否</span></p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<p>5、索票索证是否存档</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>6、安全生产档：使用的液化气（钢）瓶，是否在有效期内有检定证明</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+						</li>
+						<li>
+							<p>7、存在其他相关问题或整改意见各建议</p>
+							<textarea name="" rows="4" cols="" class="Opinion" disabled="disabled"></textarea>
+						</li>
+					</ul>
+				</div>
+				<!--小摊贩-->
+				<div class="inspect_content4" id="inspect_content4">
+					<p class="bus_title">巡查内容</p>
+					<ul class="contentMarginTop">
+						<li>
+							<p>1、是否制作销售下列食品：卤肉、凉皮、米线、馒头面制品（不包括现场热加工制售）</p>
+							<div class="radioDiv">
+								<p><span class="yuannoxuan morelist" flag = "1"></span><span>是</span></p>
+								<p><span class="yuannoxuan" flag = "2"></span><span>否</span></p>
+							</div>
+							<ul class="tips">
+								<li>
+									<span>主要原材料采购来源：</span>
+									<input type="text" id="ProcurementSource" placeholder="请输入">
+								</li>
+							</ul>
+						</li>
+						<li>
+							<ul>
+								<li>
+									<span>2、摊主姓名：</span>
+									<input type="text" id="PeddlerName" placeholder="请输入">
+								</li>
+								<li>
+									<span>身份证号：</span>
+									<input type="text" id="PeddlerId" placeholder="请输入">
+								</li>
+								<li>
+									<span>联系方式：</span>
+									<input type="text" id="PeddlerTel" placeholder="请输入">
+								</li>
+								<li>
+									<span>摊位位置：</span>
+									<input type="text" id="PeddlerAddress" placeholder="请输入">
+								</li>
+							</ul>
+						</li>
+						<li>
+							<p>3、存在其他相关问题或整改意见各建议</p>
+							<textarea name="" rows="4" cols="" class="Opinion" disabled="disabled"></textarea>
+						</li>
+					</ul>
+				</div>
+				<!--签名-->
+				<!--<div class="contentMarginTop">
+					
+				</div>-->
+			</div>
+				<!--巡查内容-->
+				<div class="Patrol_content contentMarginTop contentDiv">
+					<p class="bus_title">巡查内容</p>
+					<div class="contentList">
+						<ul>
+						</ul>
+						<p class="judgeResult bus_title">评定结果 : <span></span></p>
+					</div>
+				</div>
+				<!--商户属性-->
+				<div class="busNature contentDiv contentMarginTop">
+					<p class="bus_title">商户属性</p>
+					<ul class="contentMarginTop">
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--*****************小表****************-->
+		<!--餐饮服务单位表-->
+		<div class="tableList1 checkdetaillist" id="tableone">
+			<h4>一、巡查内容</h4>
+			<div class="checkdetaillistxuan">
+				<p>1、餐饮许可证有无（9分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>有</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>无</span></p>
+				</div>
+				<div class="checkdetaillistdiv" style="margin-top: 10px;">
+					<label>核发时间：</label>
+					<div id="tableonePermitDate"></div>
+				</div>
+				<div class="checkdetaillistdiv">
+					<label style="width:40%;">餐饮服务许可证号：</label>
+					<div style="width:60%;" id="tableonePermitNo"></div>
+				</div>
+				<div class="checkdetaillistdiv" style="border-bottom: none;">
+					<label>许可证类别：</label>
+					<div id="tableonePermitType"></div>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>2、营业执照有无（9分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>有</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>无</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>3、是否建立了食品安全管理制度（9分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>4、是否制定并执行从业人员培训制度（9分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>5、后堂食品卫生状况（9分）</p>
+				<div class="checkradio">
+					<p style="margin-right:4%;"><span class="radionoxuan" flag = "1"></span><span>良好</span></p>
+					<p style="margin-right:4%;"><span class="radionoxuan" flag = "2"></span><span>一般</span></p>
+					<p style="margin-right:4%;"><span class="radionoxuan" flag = "3"></span><span>较差</span></p>
+					<p style="margin-right:4%;"><span class="radionoxuan" flag = "4"></span><span>很差</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>6、防蝇、防鼠、防尘设施是否齐备（9分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>7-1、清洗、消毒、保洁设施是否齐备（5分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>7-2、清洗、消毒、保洁设施是否正常运转（4分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>8、凉菜制作、标化操作是否在专用房间进行（9分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>9-1、是否使用食品添加剂（5分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "2"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "1"></span><span>否</span></p>
+				</div>
+			</div>
+			
+			<div class="checkdetaillistxuan">
+				<p>9-2、是否专人采购、专人保管、专人领用、专人登记、专柜保存（4分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>10、集体食堂是否进行留样（5分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>11、餐厨废弃物暂存设施是否加盖（4分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>12、食品原料采购和使用。巡查食品原料：<span class="checkdetaillisttian"></span> 种</p>
+				<div style="width:90%;margin:0.5rem auto;">
+					<p>(1)、巡查的食品原料是否建立了进货台账（4分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>
+					<p>(2)、巡查的食品原料是否在保质期内（2分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>					
+					<p>(3)、巡查的食品原料索证资料是否齐全</p>
+					<p>生产许可证（1分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>全</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>不全</span></p>
+					</div>
+					<p>检验报告（1分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>全</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>不全</span></p>
+					</div>
+					<p>(4)、巡查的肉品原料是否索取了检疫合格证明（2分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>	
+					<p>(5)、采购的食品添加剂的标签、说明书是否载明“食品添加剂”字样（2分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>	
+				</div>				
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>13、存在其他相关问题。</p>
+				<p class="OtherQuestion"></p>
+			</div>
+		</div>
+		<!--销售单位表-->
+		<div class="tableList2 checkdetaillist" id="tabletwo">
+			<h4>一、巡查内容</h4>
+			<div class="checkdetaillistxuan">
+				<p>1、经营品种</p>
+				<div class="checkchecked ShoppiongSort">
+					<p><span class="checkcheckednoxuan" name='ShoppiongSort0' flag = "1"></span><span>普通食品</span></p>
+					<p><span class="checkcheckednoxuan" name='ShoppiongSort1' flag = "1"></span><span>保健食品</span></p>
+					<p><span class="checkcheckednoxuan" name='ShoppiongSort2' flag = "1"></span><span>食品添加剂</span></p>
+					<p><span class="checkcheckednoxuan" name='ShoppiongSort3' flag = "1"></span><span>兽药</span></p>
+					<p><span class="checkcheckednoxuan" name='ShoppiongSort4' flag = "1"></span><span>饲料</span></p>
+					<p><span class="checkcheckednoxuan" name='ShoppiongSort5' flag = "1"></span><span>农药</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>2、许可证办理</p>
+				<div class="checkchecked PermitSort">
+					<p style="width:50%;"><span class="checkcheckednoxuan" name='PermitSort0' flag = "1"></span><span>食品流通许可证</span></p>
+					<p style="width:50%;"><span class="checkcheckednoxuan" name='PermitSort1' flag = "1"></span><span>食品经营许可证</span></p>
+					<p style="width:50%;"><span class="checkcheckednoxuan" name='PermitSort2' flag = "1"></span><span>保健食品经营许可证</span></p>
+					<p style="width:50%;"><span class="checkcheckednoxuan" name='PermitSort3' flag = "1"></span><span>兽药经营许可证</span></p>
+				</div>
+				<p>许可证在经营场所显著位置悬挂（20分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>				
+			</div>
+			<h6>注：若经销食品、保健食品、食品添加剂，填写以下第 3-5 项。</h6>
+			<div class="checkdetaillistxuan">
+				<div class="checkdetaillistdiv">
+					<label>3、从业人员</label>
+					<div class="PPCount"></div>
+				</div>
+				<div class="checkdetaillistdiv" style="border-bottom: none;">
+					<label>持健康证明</label>
+					<div class="HealthCredCount"></div>
+				</div>
+			</div>			
+			<div class="checkdetaillistxuan">
+				<div class="checkdetaillistdiv">
+					<label>4、巡查食品</label>
+					<div id="AllSortCount"></div>
+				</div>
+				<div class="checkdetaillistdiv">
+					<label>预包装食品</label>
+					<div id="PreFoodSortCount"></div>
+				</div>
+				<div class="checkdetaillistdiv">
+					<label>散装食品</label>
+					<div id="BulkFoodSortCount"></div>
+				</div>
+				<div class="checkdetaillistdiv" style="border-bottom: none;">
+					<label>保健食品</label>
+					<div id="KHFSortCount"></div>
+				</div>	
+				<div style="width:94%;margin:0.5rem auto;">
+					<p>(1)所查食品索证资料是否齐全</p>
+					<p class="marginTop">进货单据（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>全</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>不全</span></p>
+					</div>
+					<p>合格证明（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>全</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>不全</span></p>
+					</div>					
+					<p>供货商资质（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>全</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>不全</span></p>
+					</div>
+                    <p>(2)销售散装食品</p>
+					<p class="marginTop">有无食品标签（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>有</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>无</span></p>
+					</div>
+					<p>标签是否标注生产日期、保质期（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>					
+					<p>(3)所查食品是否在保质期内（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>
+					<p>(4)所查食品是否按照标签标识的警示说明进行销售、储存（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>
+				</div>										
+			</div>
+	        <div class="checkdetaillistxuan">
+					<p>5、食品添加剂的标签、说明书是否载明“食品添加剂”字样（20分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>			
+			</div>
+			<h6>注：若经销农药、兽药、饲料，填写以下第 6-7 项。</h6>		
+			<div class="checkdetaillistxuan">
+				<div class="checkdetaillistdiv">
+					<label>6、巡查产品</label>
+					<div></div>
+				</div>
+				<div class="checkdetaillistdiv">
+					<label style="text-align:center;">农药</label>
+					<div id="TCCount"></div>
+				</div>
+				<div class="checkdetaillistdiv">
+					<label style="text-align:center;">兽药</label>
+					<div id="GMPCount"></div>
+				</div>
+				<div class="checkdetaillistdiv">
+					<label style="text-align:center;">饲料</label>
+					<div id="FodderCount"></div>
+				</div>	
+				<div style="width:90%;margin:0.5rem auto;">
+					<p>(1)所查产品索证资料是否齐全</p>
+					<p class="marginTop">进货单据（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>全</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>不全</span></p>
+					</div>
+					<p>生产许可证（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>全</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>不全</span></p>
+					</div>					
+                    <p>(2)销售兽药，是否索取了兽药批准文号</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>
+					<p>(3)经销农药，有无禁限用高毒农药</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>					
+					<p>是否实行高毒限用农药购销实名制</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>
+				</div>										
+			</div>
+			<div class="checkdetaillistxuan">
+					<p>7、食（产）品市场开办者、柜台出租者是否履行了审查义务</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>			
+			</div>			
+			<div class="checkdetaillistxuan">
+				<p>8、存在其他相关问题。</p>
+				<p class="OtherQuestion"></p>
+			</div>
+		</div>		
+		<!--食品生产加工小作坊表-->
+		<div class="tableList3 checkdetaillist" id="tablethree">
+			<h4>一、巡查内容</h4>
+			<div class="checkdetaillistxuan">
+				<p>1、小作坊基本卫生条件合格告知单（10分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>有</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>无</span></p>
+				</div>
+				<div class="checkdetaillistdiv">
+					<label>核发时间</label>
+					<div id="PermitDatethree"></div>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<div class="checkdetaillistdiv">
+					<label>2、从业人员</label>
+					<div class="PPCount"></div>
+				</div>
+				<div class="checkdetaillistdiv">
+					<label>持健康证明</label>
+					<div class="HealthCredCount"></div>
+				</div>
+			</div>			
+			<div class="checkdetaillistxuan">
+				<p>3、生产环境状况（按辖区平均状况比较）（10分）</p>
+				<div class="checkradio">
+					<p style="margin-right:5%;"><span class="radionoxuan" flag = "1"></span><span>良好</span></p>
+					<p style="margin-right:5%;"><span class="radionoxuan" flag = "2"></span><span>一般</span></p>
+					<p style="margin-right:5%;"><span class="radionoxuan" flag = "3"></span><span>较差</span></p>
+					<p style="margin-right:5%;"><span class="radionoxuan" flag = "4"></span><span>很差</span></p>
+				</div>
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>4、生产加工产品（食品）<span class="checkdetaillisttian" id="ProductFoodCount"> </span> 种</p>
+				<p>名称：<span class="checkdetaillisttian" id="ProductFoodName"> </span></p>
+				<div style="width:90%;margin:0.5rem auto;">
+					<p>(1) 产品（食品）是否有包装标签（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>
+					<p>标签是否涉嫌造假（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>					
+					<p>(2) 产品（食品）是否有检验报告（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>全</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>不全</span></p>
+					</div>
+					<div class="checkdetaillistdiv" style="border-bottom: none;">
+						<label>检验日期</label>
+						<div id="FoodCheckDate"></div>
+					</div>
+				</div>							
+			</div>
+			<div class="checkdetaillistxuan">
+				<p>5、采购食品原料<span class="checkdetaillisttian" id="OriginalCountthree"> </span>种</p>
+				<p>食品原料是否增加了新品种（10分）</p>
+				<div class="checkradio">
+					<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+					<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+				</div>
+				<p>食品原料新品种名称及成分（按配料表填写）：</p>
+				<div style="border-bottom:1px solid #ccc;margin-top:1rem;" id="OriginalName"> </div>
+				<div style="width:90%;margin:0.5rem auto;">
+					<p>(1) 采购的食品原料是否建立了进货台账（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>
+					<p>(2) 采购的食品原料是否在保质期内（10分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>					
+					<p>(3) 采购的食品原料索证资料是否齐全（10分）</p>
+					<p>生产许可证（5分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>全</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>不全</span></p>
+					</div>
+					<p>检验报告（5分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>全</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>不全</span></p>
+					</div>
+					<p>(4) 采购的肉品原料是否索取了检疫合格证明（5分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>	
+					<p>(5) 采购的食品添加剂的标签、说明书是否载明“食品添加剂”字样（5分）</p>
+					<div class="checkradio">
+						<p><span class="radionoxuan" flag = "1"></span><span>是</span></p>
+						<p><span class="radionoxuan" flag = "2"></span><span>否</span></p>
+					</div>	
+				</div>
+			</div>
+            <div class="checkdetaillistxuan">
+				<p>6、存在其他相关问题。</p>
+				<p class="OtherQuestion"></p>
+			</div>
+		</div>
+		
+		<!--评分和整改意见-->
+		<div class="checkdetaillist remarksDiv">
+		    <h5>当前总分：<span id="tablescore"></span> 分&nbsp;&nbsp;&nbsp;评分等级：<span id="tablegrade"></span> 级</h5>
+			<div style="width:96%;margin:1rem auto;font-size:0.8rem;color:#999999;">
+				<div>评分等级说明（可手动修改）：</div>
+				<div>A级：90分及以上</div>
+				<div>B级：60-90分</div>
+				<div>C级：60分以下</div>
+				<div>备注：若无营业执照、或餐饮许可证则默认评分等级为C</div>
+			</div>
+			<h4>二、整改意见和建议</h4>
+			<textarea rows="4" cols="40" maxlength="400" id="Opinion" style="width:96%;margin:0 auto;margin-left:1%;height:5rem;" disabled="disabled"></textarea>
+			<h4 class="hide">三、商家/巡查人签名</h4>
+			<div id="SignPhotoPath" class="Checklistli_middle hide">
+				
+			</div>
+		</div>
+		<!--现场图片-->
+		<div class='busSign contentMarginTop contentDiv' style="display:block!important">
+			<p class="bus_title">商家/巡查人签名</p>
+			<div class="addSign">
+			</div>
+		</div>
+		<!--************************************-->
+		<!--现场照片点击弹出底部选择框-->
+		<div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="pswp__bg"></div>
+			<div class="pswp__scroll-wrap">
+				<div class="pswp__container">
+					<div class="pswp__item"></div>
+					<div class="pswp__item"></div>
+					<div class="pswp__item"></div>
+				</div>
+				<div class="pswp__ui pswp__ui--hidden">
+					<div class="pswp__top-bar">
+						<div class="pswp__counter"></div>
+						<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+						<!--<button class="pswp__button pswp__button--share" title="Share"></button>-->
+						<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+						<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+						<div class="pswp__preloader">
+							<div class="pswp__preloader__icn">
+								<div class="pswp__preloader__cut">
+									<div class="pswp__preloader__donut"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pswp__loading-indicator">
+						<div class="pswp__loading-indicator__line"></div>
+					</div>
+					<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+						<div class="pswp__share-tooltip">
+							<!-- <a href="#" class="pswp__share--facebook"></a>
+							<a href="#" class="pswp__share--twitter"></a>
+							<a href="#" class="pswp__share--pinterest"></a>
+							<a href="#" download class="pswp__share--download"></a> -->
+						</div>
+					</div>
+					<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+					<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+					<div class="pswp__caption">
+						<div class="pswp__caption__center">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='td' onclick='dis_td()'>
+			<div class='bot-td'>
+				<!--<a class='a-col-td' onclick='getImage()'>
+					<p class='p-td'>拍摄</p>
+				</a>-->
+				<a class='a-col-td'>
+					<input type="file" id="file">
+					<p class='p-td' style="border-top: 1px solid #D3D3D3;">相册</p>
+				</a>
+				<a class='a-col-td' onclick='dis_td()' style="border-top: 8px solid rgba(0, 0, 0, 0.2);">
+					<p class='p-td'>取消</p>
+				</a>
+			</div>
+		</div>
+		<!--附件内容-->
+		<div class="proto1"></div>
+		<div class="proto">
+	        <div class="protoCon">
+	            <span class="return">×</span>
+	            <div class="forbidList">
+	            	<!--附件一-->
+	            	<div class="forbid_content1">
+	            		<p class="boldTitle">国家禁限用高毒农药名单</p>
+	            		<ul>
+	            		</ul>
+	            	</div>
+	            	<!--附件二-->
+	            	<div class="forbid_content2">
+	            		<p class="boldTitle">国家禁限用兽药名单</p>
+	            		<table class="light" border="1" cellspacing="0">
+	            			<thead>
+	            				<tr>
+	            					<td>兽药及其它化合物(药物)名称</td>
+	            					<td width="20%">禁止用途</td>
+	            					<td width="20%">禁用动物</td>
+	            				</tr>
+	            			</thead>
+	            			<tbody>
+	            			</tbody>
+	            		</table>
+	            	</div>
+	            	<!--附件三-->
+	            	<div class="forbid_content7">
+	            		<!--表1-->
+	            		<p class="boldTitle disappeara1">食品中可能违法添加的非食用物质名单（表一）</p>
+	            		<table class="light disappeara1" border="1" cellspacing="0">
+	            			<thead>
+	            				<tr>
+	            					<td width="35%">名称</td>
+	            					<td>可能添加的食品品种</td>
+	            				</tr>
+	            			</thead>
+	            			<tbody id="addFoodList1">
+	            			</tbody>
+	            		</table>
+	            		<!--表2-->
+	            		<p class="boldTitle disappeara">食品中可能滥用的食品添加剂品种名单（表二）</p>
+	            		<table class="light disappeara" border="1" cellspacing="0">
+	            			<thead>
+	            				<tr>
+	            					<td width="35%">食品品种</td>
+	            					<td>可能易滥用的添加剂品种</td>
+	            				</tr>
+	            			</thead>
+	            			<tbody id="addFoodList2">
+	            			</tbody>
+	            		</table>
+	            	</div>
+	            </div>
+	        </div>
+	    </div>
+	</body>
+	<script src="js1/jquery-1.4.3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type='text/javascript' src="PhotoSwipe-4.1.2/dist/photoswipe.min.js?v=4.1.1-1.0.4"></script>
+	<script type='text/javascript' src="PhotoSwipe-4.1.2/dist/photoswipe-ui-default.min.js?v=4.1.1-1.0.4"></script>
+	<!--<script src="js1/imgLarge.js" type="text/javascript" charset="utf-8"></script>-->
+	<script src="js1/imgmoreLarge.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js1/remAdaptation.js" type="text/javascript"></script>
+	<script src="js1/goPatrolShow.js" type="text/javascript"></script>
+</html>

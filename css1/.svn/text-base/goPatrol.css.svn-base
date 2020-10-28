@@ -1,0 +1,481 @@
+/*商家名称*/
+html,body{
+	height: 100%;
+	font-family: "Microsoft Yahei"!important;
+}
+input,button{
+	outline: none;
+	color: #353535;
+}
+.contentDiv{
+	width: calc(100%-20px);
+	padding: 10px 10px;
+	background: #fff;
+}
+p.bus_title{
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+.search{
+	position:relative;
+	margin-top: 7px;
+}
+.busPatrolSearth{
+	padding-top: 0px!important;
+}
+.busPatrolSearth input{
+	width: 98%;
+	border:none;
+    border-bottom: 1px solid #35d7ae;
+    height: 35px;
+    padding-left: 8px;
+}
+.busPatrolSearth button {
+	border:none;
+    background: #35d7ae;
+    border-radius: 0 5px 5px 0;
+    width: 60px;
+    top: 0;
+    right: -3px;
+    height: 37px;
+    cursor: pointer;
+    position: absolute;
+}
+.searchContent ul li,.searchContent ul p,.classifySelect ul li{
+	height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: #696969;
+    font-size: 1.4rem;
+}
+.searchContent ul p{
+	  border-bottom:none;
+}
+/*巡查内容*/
+.contentMarginTop{
+	margin-top:1rem;
+}
+.Patrol_content ul li{
+	display: flex;
+}
+.Patrol_content ul li,.busNature ul li,.busClassify ul li{
+    margin: 1rem 0;
+    color: #353535;
+    font-size:1.5rem;
+}
+.Patrol_content .chooseSpan,.radioDiv .yuannoxuan,.photoScene .addr,.forbid_content1 .chooseSpan,table td span.chooseSpan,.busClassify span.chooseSpan{
+	display: inline-block;
+	width: 1.6rem;
+	height:1.6rem;
+	position: relative;
+	top: 2px;
+	margin-right: 5px;
+}
+.Patrol_content .chooseSpan,[class^='forbid_content'] span.chooseSpan,.busClassify span.chooseSpan{
+	background: url(../img1/fangselectre.png) no-repeat;
+	background-size: 100% 100%;
+}
+table td span.chooseSpan{
+	left:2px;
+}
+/*商家属性*/
+.radioDiv .yuannoxuan{
+	background: url(../img1/yuannoxuan.png) no-repeat;
+	background-size: 100% 100%;
+}
+.Patrol_content .chooseSpan.hasChoose,[class^='forbid_content'] span.chooseSpan.hasChoose,.busClassify span.chooseSpan.hasChoose{
+	background: url(../img1/check.png) no-repeat;
+	background-size: 100% 100%;
+}
+.radioDiv .yuannoxuan.yuanxuan{
+	background: url(../img1/yuanselect.png) no-repeat;
+	background-size: 100% 100%;
+}
+.judgeResult{
+	color:rgba(212, 48, 48, 1);
+	margin-top: 3rem;
+}
+[type='radio']{
+	width:15px;
+	height: 15px;
+	margin-right: 0.8rem;
+    position: relative;
+    top: 2px;
+}
+.radioDiv{
+	margin-top: 1.5rem;
+	display: flex;
+}
+.contentMarginTop .tips{
+	display: none;
+}
+.radioDiv p:first-child{
+	margin-left:0.5rem;
+}
+.radioDiv p:last-child{
+	margin-left:2rem;
+}
+/*商户信息*/
+.busInfo ul li,.inspect_content4 li ul li{
+	height: 36px;
+    line-height: 36px;
+    border-bottom: 1px solid #ddd;
+    color: #353535;
+    padding: 5px 0;
+    font-size: 1.5rem;
+}
+.busInfo ul li input,.inspect_content4 li ul li input{
+	border:none;
+	color: #353535;
+	width:63%;
+	background: none;
+	height: 36px;
+	font-size:1.5rem;
+}
+.inspect_content4 li ul.tips li input{
+	width:50%;
+}
+.busInfo ul li:last-child{
+	border-bottom:none!important;
+}
+.busInfo ul li span{
+	display: inline-block;
+	width: 35%;
+}
+.inspect_content4 li ul.tips li span{
+	display: inline-block;
+	width: 45%;
+}
+/*上传图片*/
+.loadPhone{
+	margin: 1.5rem 0 0;
+}
+.loadPhone ul>figure,.loadPhone p.createPhone{
+	border: 1px solid #ccc;
+    width: 30%;
+    height: 9rem;
+    text-align: center;
+    border-radius: 3px;
+    color: #a09e9e;
+    display: inline-block;
+    margin: 0 3% 1.5rem 0;
+    float: left;
+}
+.loadPhone ul>figure{
+	border:none;
+}
+.loadPhone ul>figure>div{
+	position:relative;
+}
+.loadPhone ul>figure>div,.loadPhone ul>figure img{
+	width:100%;
+	height: 100%;
+}
+.loadPhone ul>figure>div>span{
+    display: inline-block;
+    position: absolute;
+    z-index: 999;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    background: #d8d8d8;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 19px;
+}
+.loadPhone ul>figure a{
+	display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.photoScene .loadPhone .createPhone{
+	font-weight: bold;
+}
+.photoScene .loadPhone .createPhone span:first-child{
+	font-size: 4rem;
+}
+/*弹出层*/
+.td {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.2);
+    display: none;
+}
+.bot-td {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background: #fff;
+}
+.a-col-td {
+    display: block;
+    position: relative;
+    /* padding: 0 15px; */
+}
+#file ,#cameraInput{
+    width: 100%;
+    height: 54px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+}
+.p-td {
+    height: 54px;
+    text-align: center;
+    line-height: 54px;
+    color: #2B2B2B;
+    margin: 0 15px;
+    font-size: 1.7rem;
+}
+.a-col-td {
+    display: block;
+    position: relative;
+    /* padding: 0 15px; */
+}
+.photoScene .addr{
+	background: url(../img1/point.png) no-repeat;
+	background-size: 100% 100%;
+	color: #006699;
+	height: 1.9rem;
+	top:4px;
+}
+.addrP{
+	font-size:1.3rem;
+	color: #006699;
+}
+/*提交按钮*/
+.btn{
+	width: 94%;
+    height: 45px;
+    line-height: 45px;
+    background: #35d7ae;
+    border: none;
+    color: #fff;
+    margin: 0 auto;
+    margin: 5rem 3%;
+    border-radius: 18px;
+    font-size: 1.8rem;
+	letter-spacing: 1px;
+}
+/*附件弹框*/
+.proto ,.proto1,.signBox1,.signBox{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-x: hidden ;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 999;
+}
+.proto1{
+	height: 30%;
+	z-index: 9999;
+}
+.signBox1{
+	height: 15%;
+	z-index: 9999;
+	background: none;
+}
+.proto.hover,.proto1.hover,.signBox1.hover,.signBox.hover {
+    display: block;
+}
+.proto .protoCon,.signBox .signBoxCon{
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    height: 70%;
+    bottom: 0;
+    overflow-y: auto;
+}
+.signBox .signBoxCon{
+	height: 65%;
+    bottom: 20%;
+}
+.proto .protoCon .return {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    width: 25px;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #A9A9A9;
+    color: #fff;
+    cursor: pointer;
+    font-size:2.5rem;
+}
+.forbidList{
+	margin: 1.5rem auto;
+}
+.forbid_content1{
+	width: 90%;
+	margin: 0 auto;
+	display: none;
+}
+.forbid_content2,.forbid_content7{
+	width: 98%;
+	margin: 0 auto;
+	display: none;
+}
+.forbid_content1.hover,.forbid_content2.hover,.forbid_content7.hover{
+	display: block;
+}
+table{
+	text-align: center;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	border-collapse:collapse;
+} 
+table td{
+	border-left:1px solid #ccc;
+	border-top:1px solid #ccc;
+	height:30px;
+} 
+.bold{
+	color: #000;
+	font-size: 1.5rem;
+}
+.boldTitle{
+	text-align: center;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	color: #000;
+	font-weight: bold;
+}
+.light{
+	color: #353535;
+	font-size: 1.5rem;
+}
+table.light{
+	width:100%;
+	font-size:1.5rem;
+	margin-bottom: 5rem;
+}
+.forbid_content1 ul li{
+	margin-top: 1rem;	
+}
+.searchTop{
+	padding-top:10px;
+}
+.searchTop.whenSearch{
+	position: fixed;
+	width:94%;
+	height: 6.5rem;
+	background: #fff;
+	padding-top: 10px;
+	/*padding: 20px 5px 10px;*/
+}
+.hgt{
+	height: 7.5rem;
+	display: none;
+}
+/*/////新加的////*/
+textarea{
+	width:99%;
+	resize: none;
+	padding-top: 10px;
+	padding-left: 5px;
+	outline: none;
+	border:1px solid #ccc;
+}
+.busPatrolSearth textarea{
+	border: none;
+}
+.red{
+	color: rgba(212, 48, 48, 1)!important;
+}
+.busClassify .top_content{
+	display: flex;
+	height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #35d7ae;
+    margin-bottom: 1rem;
+}
+.busClassify .top_content .bus_title{
+	width:35%;
+}
+.busClassify .top_content .arrow{
+	color: #353535;
+	width: 65%;
+	background: url(../img1/on.png) no-repeat 95% center;
+}
+.classifySelect{
+	display: none;
+}
+.busClassify textarea{
+	margin-top:1rem;
+}
+[class^='inspect_content']{
+	display: none;
+}
+.inspect_content3 ul.tips{
+	margin-top: 8px;
+}
+.inspect_content3 ul.tips li{
+	display: inline-block;
+}
+.busClassify{
+	padding-bottom: 4rem;
+}
+/*签名*/
+.busSign .bus_title{
+	margin-top: 5px;
+}
+.busSign .bus_title span{
+	float:right;
+}
+.busSign .addSign{
+	height: 18rem;
+    background: #bbb;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+#signature{
+	height: 100%;
+	overflow-y: hidden;
+}
+.busSign .addSign span{
+	display: block;
+    height: 18rem;
+    line-height: 18rem;
+    font-size: 1.3rem;
+    color: #383636;
+    letter-spacing: 1px;
+}
+.addSign img{
+	width:100%;
+	height:18rem;
+	display: none;
+}
+.addSign img.hover{
+	display: block;
+}
+.signBox .btn{
+	position: absolute;
+    bottom: 0rem;
+    background: #ce1515;
+    font-size: 1.5rem;
+}
+.signBox span{
+	position: absolute;
+    right: 1rem;
+    top: 2%;
+    color: #35d7ae;
+}
+.busSign{
+	display: none;
+}
